@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: white;
+}
+
+.str-video__menu-container {
+  color: white;
+}
+
+.str-video__notification {
+  color: white;
+}
+
+.str-video__participant-list {
+  background-color: #1c1f2e;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 40px;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ==== clerk class override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
+
+/* animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
+  }
+}
+
+.cl-internal-tftniu {
+  display: none !important;
+}
+
+.cl-internal-lqfubk:has(div:only-child) {
+  display: none;
+}
+
+.cl-internal-180wb59 {
+  display: none;
+}
+
+.collapse {
+  visibility: visible;
+}
+
+
+.bg-image {
+  background: url('/images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+/* .bg-image::before
+{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 8rem;
+  clip-path: polygon(0 72%, 0% 100%, 100% 100%);
+} */
+.card-awesome {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(266, 92%, 58%);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+  background-color: hsla(240, 15%, 9%, 1);
+  background-image: radial-gradient(at 88% 40%,
+      rgb(255, 255, 255) 0px,
+      transparent 85%),
+    radial-gradient(at 49% 30%, rgb(255, 255, 255) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, rgb(255, 255, 255) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, #16ecec 0px, transparent 85%),
+    radial-gradient(at 41% 94%, #1ebbc4 0px, transparent 85%),
+    radial-gradient(at 100% 99%, #7ff4fa 0px, transparent 85%);
+
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
+  cursor: pointer;
+  min-height: 34rem;
+  transition: all .3s;
+}
+
+
+.card-awesome-black {
+
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(189, 92%, 58%);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+  background-color: hsla(240, 15%, 9%, 1) !important;
+  background-image: radial-gradient(at 88% 40%,
+      hsla(240, 15%, 9%, 1) 0px,
+      transparent 85%),
+    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, #16ecec 0px, transparent 85%),
+    radial-gradient(at 41% 94%, #1ebbc4 0px, transparent 85%),
+    radial-gradient(at 100% 99%, #7ff4fa 0px, transparent 85%);
+
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset !important;
+  cursor: pointer;
+  transition: all .3s;
+
+}
+
+
+.card-awesome-black:hover,
+.card-awesome:hover {
+  scale: 1.1;
+}
+
+
+.secvice-box {
+  position: absolute;
+  transition: all.3s;
+  transform: rotate(calc(360deg/6 * var(--i)));
+  transform-origin: 277px;
+  z-index: 100;
+}
+
+.secvice-box > div > div:hover
+{
+  transition: all .3s;
+  background: orange;
+}
+
+
+.secvice-box>div {
+  transform: rotate(calc(-360deg/6 * var(--i)));
+}
+
+/* .secvice-box h2
+{
+  transform-origin: right;
+  transform: rotate(calc(-360deg/6 * var(--i)));
+} */
+
+
+.contentBox {
+  position: absolute;
+  transition: all .3s;
+  opacity: 0;
+  display: none !important;
+  transition: all .4s;
+
+}
+
+.contentBox.active {
+  display: block !important;
+  opacity: 1;
+}
