@@ -66,11 +66,11 @@ const CallListUpcoming = () => {
     <div className='flex items-center justify-center flex-wrap gap-5'>
       {
         meetings && meetings.map((room: IRoomDetails,idex: number) => (
-          <div className='w-[25rem] !min-h-[13rem] !shadow-md card-awesome rounded-md p-4 !bg-white border border-gray-100'>
-            <h3 className="text-black/80 text-xl">{idex+1}. {room?.room_id}</h3>
+          <div className='w-[25rem] !min-h-[13rem] !shadow-md gradient-insta flex flex-col gap-4 rounded-md p-4 !bg-white border border-gray-100'>
+            <h3 className="text-white text-xl">Id: {room?.room_id}</h3>
             
-            <p className="text-black/70 text-lg">Date: {formatDate(new Date(room.scheduleTime))}</p>
-            <Link href={`/dashboard/beforemeet/${room?.room_id}`} className='py-2 px-5 bg-foregroud-primary rounded-md w-[10rem] mx-auto'>Click TO Start</Link>
+            <p className="text-white/90 text-lg">Date: {formatDate(new Date(room.scheduleTime))}</p>
+            <Link href={`/dashboard/beforemeet/${room?.room_id}`} className='py-2 px-5 bg-black/30 rounded-md w-[9rem] mx-auto'>Click TO Start</Link>
           </div>
         ))
       }

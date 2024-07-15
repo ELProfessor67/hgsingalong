@@ -6,6 +6,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, LineElement, PointElement } from 'chart.js';
+import Link from 'next/link';
 
 ChartJS.register(
   CategoryScale,
@@ -106,39 +107,52 @@ const {user} = useUser()
 
   return (
     <section className='flex size-full flex-col gap-10 text-white'>
+      
+      <div className="flex items-center justify-center flex-col mb-12">
+
+          <h2 className=" mt-4 main-header !text-4xl">
+            Dashboard
+          </h2>
+        
+        </div>
+
       <div className='flex items-center flex-wrap gap-5'>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-orange-1 flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl'>Total Meetings</h2>
             <h1 className='text-white text-7xl'>{totalroom}</h1>
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-blue-1 flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl'>Days Left</h2>
             <h1 className='text-white text-7xl'>{details?.subscription_expire ? daysLeftUntil(details?.subscription_expire) : 0}</h1>
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-yellow-1 flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl'>Current Plan</h2>
             <h1 className='text-white text-3xl'>{subscription}</h1>
+            {
+              subscription === 'free' &&
+            <Link href={'/plans'} className='py-2 px-4 rounded-md bg-black/30'>UPGRADE NOW</Link>
+            }
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-yellow-1 flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md gradient-insta flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white/70 text-xl'>Meeting Duration</h2>
+            <h2 className='text-white/70 text-xl '>Meeting Duration</h2>
             <h1 className='text-white text-7xl'>{planslist[subscription]?.min}<span className='text-xl text-white/70'>min</span></h1>
           </div>
         </div>
       </div>
 
       <div className='w-[40rem] mx-auto'>
-        <h3 className='text-black/90 text-center my-5 text-3xl mt-10'>Room Durations</h3>
+        <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Room Durations</h3>
         <Bar data={barData} />
       </div>
       <div className='w-[40rem] mx-auto'>
-        <h3 className='text-black/90 text-center my-5 text-3xl mt-10'>Rooms Created Over Time</h3>
+        <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Rooms Created Over Time</h3>
         <Line data={lineData} />
       </div>
     </section>

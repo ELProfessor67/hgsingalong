@@ -1,15 +1,14 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter } from "next/font/google";
-import { dark  } from '@clerk/themes';
+import { Rubik } from "next/font/google";
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"] });
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sing Along",
@@ -31,12 +30,8 @@ export default function RootLayout({
       </head>
       <body>
 
-        <ClerkProvider
-          appearance={{
-            baseTheme: dark 
-          }}
-        >
-          <body className={`${inter.className} bg-dark-2`}>
+        <ClerkProvider>
+          <body className={`${rubik.className} bg-dark-2`}>
             <Toaster />
             {children}
           </body>

@@ -13,7 +13,14 @@ Author URI: https://webpixels.io
 Copyright 2020 Webpixels
 
 */
-@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700,800&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*,
+body,
+html
+{
+ font-family: "Rubik", sans-serif !important;
+}
 :root {
   --blue: #008aff;
   --indigo: #6e00ff;
@@ -43,8 +50,8 @@ Copyright 2020 Webpixels
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-sans-serif: "Rubik", sans-serif !important;
+  --font-family-monospace: "Rubik", sans-serif !important;
 }
 
 
@@ -59,7 +66,7 @@ svg {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif !important;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(31, 45, 61, 0);
@@ -78,7 +85,7 @@ html {
   display: block;
 }
 .zeeshan body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Rubik", sans-serif !important;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.7;
@@ -186,7 +193,7 @@ html {
 .zeeshan code,
 .zeeshan kbd,
 .zeeshan samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Rubik", sans-serif !important;
   font-size: 1em;
 }
 .zeeshan pre {
@@ -353,7 +360,7 @@ html {
   font-weight: 600;
   line-height: 1.5;
   margin-bottom: 0.66667rem;
-  color: #152c5b;
+  color: #000000;
 }
 .zeeshan h1,
 .zeeshan .h1 {
@@ -5725,7 +5732,7 @@ html {
   background-color: #1f2d3d;
 }
 .zeeshan .popover {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Rubik", sans-serif !important;
   font-size: 0.875rem;
   font-weight: 400;
   font-style: normal;
@@ -5869,7 +5876,7 @@ html {
   font-size: 1rem;
   margin-bottom: 0;
   padding: 0.75rem 0.75rem;
-  color: #152c5b;
+  color: #000000;
   border-bottom: 1px solid #f2f2f2;
   border-top-left-radius: calc(0.5rem - 1px);
   border-top-right-radius: calc(0.5rem - 1px);
@@ -10689,7 +10696,7 @@ html {
   }
 }
 .zeeshan .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-family: "Rubik", sans-serif !important;
 }
 .zeeshan .text-justify {
   text-align: justify !important;
@@ -15445,7 +15452,7 @@ html {
   cursor: pointer;
 }
 .zeeshan .accordion .card-header:after {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Rubik", sans-serif !important;
   font-weight: 700;
   position: absolute;
   top: 50%;
@@ -15672,7 +15679,7 @@ html {
   color: #718096;
 }
 .zeeshan .footer-light .heading {
-  color: #152c5b;
+  color: #000000;
 }
 .zeeshan .footer-light .list-unstyled li a {
   color: #a0aec0;
@@ -17847,7 +17854,7 @@ html {
 .zeeshan .h4 a,
 .zeeshan .h5 a,
 .zeeshan .h6 a {
-  color: #152c5b;
+  color: #000000;
 }
 .zeeshan h1 a:hover,
 .zeeshan h2 a:hover,
@@ -18057,7 +18064,7 @@ html {
   position: absolute;
 }
 .zeeshan .blockquote .quote:before {
-  font-family: Arial;
+  font-family: "Rubik", sans-serif !important;;
   font-size: 4em;
   line-height: 1;
   content: "“";
@@ -18078,7 +18085,7 @@ html {
   border-left: 0.5rem solid #008aff;
 }
 .zeeshan .blockquote-card:before {
-  font-family: Arial;
+  font-family: "Rubik", sans-serif !important;;
   font-size: 4em;
   position: absolute;
   top: -0.875rem;

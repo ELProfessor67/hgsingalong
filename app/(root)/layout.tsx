@@ -8,7 +8,9 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     <main>
       <SubcriptionProvider>
 
-      <StreamVideoProvider>{children}</StreamVideoProvider> 
+      {/* <StreamVideoProvider> */}
+        {children}
+        {/* </StreamVideoProvider>  */}
       </SubcriptionProvider>
     </main>
   );

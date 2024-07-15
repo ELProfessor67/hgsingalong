@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+
+*,
+body,
+html
+{
+ font-family: "Rubik", sans-serif !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -62,7 +75,7 @@ body {
 
 /* ==== clerk class override ===== */
 
-.cl-userButtonPopoverActionButtonIcon {
+/* .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
 
@@ -85,7 +98,7 @@ body {
 
 .cl-userButtonPopoverActionButton {
   color: white;
-}
+} */
 
 /* =============================== */
 
@@ -124,17 +137,26 @@ body {
   display: none !important;
 }
 
-.cl-internal-lqfubk:has(div:only-child) {
-  display: none;
+.cl-internal-11ttlho:has(div:only-child) {
+  display: none !important;
 }
 
 .cl-internal-180wb59 {
-  display: none;
+  display: none !important;
+}
+
+
+button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
+{
+  @apply !bg-foregroud-primary !border-none !shadow-sm;
 }
 
 .collapse {
   visibility: visible;
 }
+
+
+
 
 
 .bg-image {
@@ -253,6 +275,12 @@ body {
   transform: rotate(calc(-360deg/6 * var(--i)));
 } */
 
+@media (max-width: 768px){
+  .secvice-box {
+    transform-origin: 160px !important; 
+  }
+}
+
 
 .contentBox {
   position: absolute;
@@ -266,4 +294,31 @@ body {
 .contentBox.active {
   display: block !important;
   opacity: 1;
+}
+
+
+.source-sans-3-font {
+  font-family: "Source Sans 3", sans-serif !important;
+}
+
+
+.main-header
+{
+  @apply !text-heading-color !font-bold;
+}
+.main-para
+{
+  @apply !text-para-color;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 27px !important;
+}
+
+.gradient-insta
+{
+  background: #833ab4;
+  background: linear-gradient(
+    to right,
+    #833ab4,#fd1d1d,#fcb045
+  );
 }

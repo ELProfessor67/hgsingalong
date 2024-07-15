@@ -24,6 +24,8 @@ const config = {
         "backgroud-secondary": "#000000",
         "foregroud-primary": "#71C9CE",
         "foregroud-secondary": "#ffffff",
+        "para-color": "#242424",
+        "heading-color":"#564f4f",
         dark: {
           1: '#fafbfe',
           2: '#fafbfe',
