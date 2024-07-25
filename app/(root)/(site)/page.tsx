@@ -54,7 +54,7 @@ const page = () => {
   const router = useRouter()
   const { toast } = useToast()
   const { subscription } = useContext(subscriptionContext)
-  const {user} = useUser()
+  const { user } = useUser()
 
 
   const handleRating = (rate: number) => {
@@ -112,11 +112,11 @@ const page = () => {
   }, [])
 
 
-  const  handlePurchanse = async (e: any,key:string) => {
+  const handlePurchanse = async (e: any, key: string) => {
     e.stopPropagation()
-    if(user){
+    if (user) {
       router.push(`/api/v1/subscription/buy?user_id=${user?.id}&plan=${key}`)
-    }else{
+    } else {
       toast({
         title: "Please Login First"
       })
@@ -499,27 +499,27 @@ const page = () => {
                             }
                           </ul>
                           {
-                            
-                              subscription === plan ?
-                                (
-                                  <a
-                                    
-                                    className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
-                                  >
-                                    Current Plan
-                                  </a>
 
-                                )
-                                :
-                                (
-                                  <a
-                                  onClick={(e) => handlePurchanse(e,plan)}
-                                    className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
-                                  >
-                                    Purchase Now
-                                  </a>
+                            subscription === plan ?
+                              (
+                                <a
 
-                                )
+                                  className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                >
+                                  Current Plan
+                                </a>
+
+                              )
+                              :
+                              (
+                                <a
+                                  onClick={(e) => handlePurchanse(e, plan)}
+                                  className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                >
+                                  Purchase Now
+                                </a>
+
+                              )
                           }
                         </div>
                       </div>
@@ -557,7 +557,7 @@ const page = () => {
                             plan == 'free' && subscription != 'free' ?
                               (
                                 <a
-                                  
+
                                   className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                 >
                                   Free Plan
@@ -566,7 +566,7 @@ const page = () => {
                               subscription === plan ?
                                 (
                                   <a
-                                    
+
                                     className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
                                     Current Plan
@@ -576,7 +576,7 @@ const page = () => {
                                 :
                                 (
                                   <a
-                                  onClick={(e) => handlePurchanse(e,plan)}
+                                    onClick={(e) => handlePurchanse(e, plan)}
                                     className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
                                     Purchase Now
@@ -925,6 +925,8 @@ const page = () => {
                   hassle-free meetings.{" "}
                 </p>
               </div>
+
+
               <div className="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
                 <h6 className="heading mb-3">Account</h6>
                 <ul className="list-unstyled">
@@ -979,7 +981,23 @@ const page = () => {
                     />
                   </a>
                 </div>
+
               </div>
+
+            </div>
+            <div className='flex items-center justify-end gap-8'>
+
+              <img src="https://hallelujahgospel.org/public/new/img/hallulia/bbb.png" width="85" className="p-0 m-0" />
+              <img src="https://hallelujahgospel.org/public/new/img/hallulia/access.png" width="65" className="p-0 m-0 me-2" />
+              <img src="https://hallelujahgospel.org/public/new/img/hallulia/lock.png" width="65" className="p-0 m-0 me-2" />
+              <a href="https://apps.apple.com/pk/app/hgc-radio-music-live/id6476858215" target="_blank">
+                <img src="https://hallelujahgospel.org/public/new/img/hallulia/apple.png" width="70" className="p-0 m-0 me-2" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
+                <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
+              </a>
+
+
             </div>
             <hr className="divider divider-fade divider-dark my-4" />
             <div className="row align-items-center justify-content-md-between pb-4">

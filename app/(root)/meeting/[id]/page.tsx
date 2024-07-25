@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {JitsiMeeting } from "@jitsi/react-sdk"
 import { useUser } from '@clerk/nextjs'
 import axios from 'axios'
@@ -84,6 +84,7 @@ export interface IRoomDetails {
 
 const page = ({params}:PropsType) => {
   const YOUR_DOMAIN:string = "meet.hgsingalong.com"
+  const tryBackRef = useRef(false)
 
   const {user,isLoaded} = useUser()
 
@@ -104,6 +105,33 @@ const page = ({params}:PropsType) => {
     getRoomdDetails();
   },[params.id])
 
+
+  function confirmReload(event:any) {
+    var confirmationMessage = "Are you sure you want to left meet ?";
+
+      // For modern browsers
+      event.returnValue = confirmationMessage;
+      tryBackRef.current = true;
+      
+      return confirmationMessage;
+  }
+
+  function getTryBack () {
+    return tryBackRef.current;
+  }
+
+  useEffect(() => {
+		
+
+		window.addEventListener('beforeunload', confirmReload);
+		window.addEventListener('popstate', confirmReload);
+
+		return () => {
+			window.removeEventListener('beforeunload', confirmReload);
+			window.removeEventListener('popstate', confirmReload);
+		}
+	},[])
+
   return (
     <div style={{height: "100vh",display: 'grid',flexDirection: "column"}}>
       <JitsiMeeting
@@ -119,9 +147,16 @@ const page = ({params}:PropsType) => {
         }}
         // containerStyle={{ flex: 1, display: "flex" } as any} 
         onApiReady={(externalApi) => {
+
           externalApi.addListener("videoConferenceLeft", () => {
+            console.log(getTryBack(),'tryback')
+            if(getTryBack()){
+              tryBackRef.current = false;
+              return;
+            }
             console.log("The local participant has left the meeting.");
             router.push("/?show_feedback=1");
+            
           });
         }}
 
