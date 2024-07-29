@@ -5,6 +5,8 @@ import { useUser } from '@clerk/nextjs'
 import axios from 'axios'
 import { useToast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation'
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 interface TypeParams
 {
@@ -85,6 +87,7 @@ export interface IRoomDetails {
 const page = ({params}:PropsType) => {
   const YOUR_DOMAIN:string = "meet.hgsingalong.com"
   const tryBackRef = useRef(false)
+  const roomdetailsRef = useRef<IRoomDetails>()
 
   const {user,isLoaded} = useUser()
 
@@ -95,6 +98,7 @@ const page = ({params}:PropsType) => {
     try {
       const res = await axios.get(`/api/v1/create-room?room_id=${params.id}`);
       setRoomDetails(res.data?.room)
+      roomdetailsRef.current = res.data?.room;
       console.info(res)
     } catch (error) {
       console.log(error)
@@ -104,6 +108,7 @@ const page = ({params}:PropsType) => {
   useEffect(() => {
     getRoomdDetails();
   },[params.id])
+
 
 
   function confirmReload(event:any) {
@@ -132,6 +137,23 @@ const page = ({params}:PropsType) => {
 		}
 	},[])
 
+
+  const confirmAdmit = (username:string,handleReject:() => void) => {
+    confirmAlert({
+      title: 'New User Join',
+      message: `${username} want to join this meet.`,
+      buttons: [
+        {
+          label: 'Admit',
+        },
+        {
+          label: 'Reject',
+          onClick: () => handleReject()
+        }
+      ]
+    });
+  };
+
   return (
     <div style={{height: "100vh",display: 'grid',flexDirection: "column"}}>
       <JitsiMeeting
@@ -139,7 +161,7 @@ const page = ({params}:PropsType) => {
         roomName = {params.id || 'ishdjishdfiohdewhjroiehwoirh'}
         userInfo={{
           displayName: `${user?.firstName} ${user?.lastName}`,
-          email: user?.primaryEmailAddress?.emailAddress as string
+          email: user?.primaryEmailAddress?.emailAddress as string,
         }}
         interfaceConfigOverwrite={{
           SHOW_JITSI_WATERMARK: false,
@@ -158,6 +180,24 @@ const page = ({params}:PropsType) => {
             router.push("/?show_feedback=1");
             
           });
+
+          externalApi.addListener('participantJoined', (ParticipantDetails) => {
+           
+            console.log(ParticipantDetails,"ParticipantDetails")
+            if(roomdetailsRef.current?.user_id == user?.id){
+              // const confirm = window.confirm(`${ParticipantDetails?.formattedDisplayName?.split(' ')[0]} user want to join meet.`);
+              const handleReject = () => {
+                externalApi.executeCommand('kickParticipant',ParticipantDetails.id)
+              }
+              confirmAdmit(ParticipantDetails?.formattedDisplayName?.split(' ')[0],handleReject);
+              // if(confirm){
+              //   console.log('admit')
+              // }else{
+              //   externalApi.executeCommand('kickParticipant',ParticipantDetails.id)
+              // }
+
+            }
+          })
         }}
 
         configOverwrite={{

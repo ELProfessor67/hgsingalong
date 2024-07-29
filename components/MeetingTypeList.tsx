@@ -47,8 +47,8 @@ const MeetingTypeList = () => {
       if(subscription == 'starter'){
         end_time = new Date(Date.now() + 1 * 60 * 60 * 1000).toUTCString()
       }else if(subscription == 'plus'){
-        // end_time = new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()
-        end_time = new Date(Date.now() +  7 * 60 * 1000).toUTCString()
+        end_time = new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()
+        // end_time = new Date(Date.now() +  7 * 60 * 1000).toUTCString()
       }else{
         end_time = new Date(Date.now() +  40 * 60 * 1000).toUTCString()
       }

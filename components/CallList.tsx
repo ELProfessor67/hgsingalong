@@ -74,6 +74,14 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         ))
       }
 
+
+  {
+        meetings.length == 0 && 
+        <div className='flex items-center justify-center h-[60vh]'>
+          <h2 className='text-black/80 text-4xl'>No Previous meetings</h2>
+        </div>
+      }
+
     </div>
   );
 };

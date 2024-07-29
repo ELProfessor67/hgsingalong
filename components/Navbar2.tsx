@@ -1,3 +1,4 @@
+"use client"
 import { useUser } from '@clerk/nextjs'
 import { Link } from 'lucide-react';
 import React from 'react'
@@ -68,7 +69,7 @@ const Navbar2 = () => {
             >
               <a
                 className="nav-link !text-black/80 hover:!text-foregroud-primary !font-medium hover:!font-normal !text-[18px]"
-                href="/page/about"
+                href="/about"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -84,13 +85,13 @@ const Navbar2 = () => {
                   Services
                 </a>
                 <a
-                  href="/page/how-to-use"
+                  href="/how-to-use"
                   className="dropdown-item !text-black/80 hover:!text-foregroud-primary !font-medium hover:!font-normal !text-[18px]"
                 >
                   Guidelines
                 </a>
                 <a
-                  href="/pricing"
+                  href="/plans"
                   className="dropdown-item !text-black/80 hover:!text-foregroud-primary !font-medium hover:!font-normal !text-[18px]"
                 >
                   Pricing

@@ -35,6 +35,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { planslist } from '@/constants';
 import { subscriptionContext } from '@/providers/SubscriptionProvider';
 import { useUser } from '@clerk/nextjs';
+import Link from 'next/link';
 
 interface CustomStyle extends React.CSSProperties {
   '--i'?: number;
@@ -1019,7 +1020,7 @@ const page = () => {
                   <li className="nav-item">
                     <a
                       className="nav-link !text-foregroud-secondary hover:!text-foregroud-primary"
-                      href="/page/terms"
+                      href="/terms"
                     >
                       Terms &amp; Conditions
                     </a>
@@ -1027,7 +1028,7 @@ const page = () => {
                   <li className="nav-item">
                     <a
                       className="nav-link !text-foregroud-secondary hover:!text-foregroud-primary"
-                      href="/page/policy"
+                      href="/policy"
                     >
                       Privacy Policy
                     </a>
@@ -1070,7 +1071,10 @@ const page = () => {
             placeholder='Leave a message, if you want'
           />
         </div>
-        <p className='text-center'>If you like us please <span className='text-foregroud-primary cursor-pointer' onClick={handleShare}>share</span></p>
+        <p className='text-center'>Invite Your Friends and Family! <br/> Thank you for using our meeting platform. <span className='text-foregroud-primary cursor-pointer' onClick={handleShare}>share</span> the ease of seamless connections with your friends and family. Invite them to join today! </p>
+
+
+        <span className='text-foregroud-primary text-center'><Link href={'/plans'}>See Our Plans</Link></span>
       </MeetingModal>
 
       <MeetingModal
