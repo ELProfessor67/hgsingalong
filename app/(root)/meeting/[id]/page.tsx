@@ -140,7 +140,7 @@ const page = ({params}:PropsType) => {
 
   const confirmAdmit = (username:string,handleReject:() => void) => {
     confirmAlert({
-      title: 'New User Join',
+      title: `${username} Join`,
       message: `${username} want to join this meet.`,
       buttons: [
         {
@@ -160,7 +160,7 @@ const page = ({params}:PropsType) => {
         domain = { YOUR_DOMAIN }
         roomName = {params.id || 'ishdjishdfiohdewhjroiehwoirh'}
         userInfo={{
-          displayName: `${user?.firstName} ${user?.lastName}`,
+          displayName: `${user?.firstName || ''} ${user?.lastName || ''}`,
           email: user?.primaryEmailAddress?.emailAddress as string,
         }}
         interfaceConfigOverwrite={{
