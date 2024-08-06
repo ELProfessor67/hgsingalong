@@ -48,7 +48,8 @@ export interface Plan {
   price: number;
   popular?: boolean;
   features: string[];
-  min: number
+  min: number,
+  saving: number
 }
 
 export const planslist:Record<string, Plan> = {
@@ -56,6 +57,7 @@ export const planslist:Record<string, Plan> = {
     title: "Free",
     price: 0,
     min: 40,
+    saving: 0,
     features: [
       "Up to 20 participants per meeting",
       "Basic meeting controls (mute, video on/off)",
@@ -70,6 +72,7 @@ export const planslist:Record<string, Plan> = {
     min: 60,
     price: 10,
     popular: true,
+    saving: 2,
     features: [
       "Up to 50 participants per meeting",
       "Extended meeting duration (e.g., 1 hour)",
@@ -83,6 +86,7 @@ export const planslist:Record<string, Plan> = {
     title: "Business Plus",
     price: 20,
     min: 120,
+    saving: 8,
     features: [
       "Up to 100 participants per meeting",
       "Extended meeting duration (e.g., 2 hours)",

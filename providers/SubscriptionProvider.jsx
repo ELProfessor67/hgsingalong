@@ -20,8 +20,7 @@ export const SubcriptionProvider = ({children}) => {
     useEffect(() => {
         if (!isLoaded || !user) return;
         
-        const res = axios.get(`/api/v1/subscription?user_id=${user?.id}`).then(res => {
-          
+        axios.get(`/api/v1/subscription?user_id=${user?.id}`).then(res => {
             setSubscription(res.data?.plan)
             setdetails(res.data?.details)
         });

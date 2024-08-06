@@ -116,7 +116,8 @@ const page = () => {
   const handlePurchanse = async (e: any, key: string) => {
     e.stopPropagation()
     if (user) {
-      router.push(`/api/v1/subscription/buy?user_id=${user?.id}&plan=${key}`)
+      // router.push(`/api/v1/subscription/buy?user_id=${user?.id}&plan=${key}`)
+      router.push(`/checkout?plan=${key}`)
     } else {
       toast({
         title: "Please Login First"
