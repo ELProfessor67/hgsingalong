@@ -7,6 +7,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, LineElement, PointElement } from 'chart.js';
 import Link from 'next/link';
+import { FaQuestionCircle } from "react-icons/fa";
 
 ChartJS.register(
   CategoryScale,
@@ -119,19 +120,20 @@ const {user} = useUser()
       <div className='flex items-center flex-wrap gap-5'>
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white/70 text-xl'>Total Meetings</h2>
+            <h2 className='text-white/70 text-xl flex items-center'>Total Meetings <span className='ml-2 text-white cursor-pointer' title='Total number of meetings will be displayed here that how many meetings you have done.'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-7xl'>{totalroom}</h1>
           </div>
         </div>
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white/70 text-xl'>Days Left</h2>
+            <h2 className='text-white/70 text-xl flex items-center'>Days Left <span className='ml-2 text-white cursor-pointer' title='How many days are left in ending your plan
+.'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-7xl'>{details?.subscription_expire ? daysLeftUntil(details?.subscription_expire) : 0}</h1>
           </div>
         </div>
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white/70 text-xl'>Current Plan</h2>
+            <h2 className='text-white/70 text-xl flex items-center'>Current Plan <span className='ml-2 text-white cursor-pointer' title='You can see your current plan from here if you want to upgrade click on the upgrade button below .'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-3xl'>{subscription}</h1>
             {
               subscription === 'free' &&
@@ -141,7 +143,7 @@ const {user} = useUser()
         </div>
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md gradient-insta flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white/70 text-xl '>Meeting Duration</h2>
+            <h2 className='text-white/70 text-xl flex items-center '>Meeting Duration <span className='ml-2 text-white cursor-pointer' title='It will shows the meeting duration that how many time of meeting you can do in that plan.'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-7xl'>{planslist[subscription]?.min}<span className='text-xl text-white/70'>min</span></h1>
           </div>
         </div>
