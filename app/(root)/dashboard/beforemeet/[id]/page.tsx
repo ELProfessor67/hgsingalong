@@ -24,6 +24,7 @@ import {
 } from 'react-share';
 import axios from 'axios';
 import { subscriptionContext } from '@/providers/SubscriptionProvider';
+import { planslist } from '@/constants';
 
 interface TypeParams {
     id: string
@@ -61,7 +62,7 @@ const page = ({ params }: PropsType) => {
             } else if (subscription == 'plus') {
                 end_time = new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()
             } else {
-                end_time = new Date(Date.now() + 40 * 60 * 1000).toUTCString()
+                end_time = new Date(Date.now() + planslist['free']?.min * 60 * 1000).toUTCString()
             }
             const res = await axios.put(`/api/v1/create-room?room_id=${params.id}`, {
                 start_time: new Date().toUTCString(),

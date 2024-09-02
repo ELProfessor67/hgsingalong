@@ -56,7 +56,7 @@ export const planslist:Record<string, Plan> = {
   "free": {
     title: "Free",
     price: 0,
-    min: 40,
+    min: 20,
     saving: 0,
     features: [
       "Up to 20 participants per meeting",

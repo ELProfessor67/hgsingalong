@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 'use client';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import HomeCard from './HomeCard';
@@ -14,6 +14,25 @@ import { useToast } from './ui/use-toast';
 import { Input } from './ui/input';
 import axios from 'axios';
 import { subscriptionContext } from '@/providers/SubscriptionProvider';
+import { planslist } from '@/constants';
+import { reactionType } from '@stream-io/video-react-sdk';
+import { IRoomDetails } from './CallList';
+
+
+function isToday(dateString: string): boolean {
+  // Convert the date string to a Date object
+  const inputDate = new Date(dateString);
+
+  // Get the current date
+  const today = new Date();
+
+  // Compare the year, month, and date of both dates
+  return (
+    inputDate.getFullYear() === today.getFullYear() &&
+    inputDate.getMonth() === today.getMonth() &&
+    inputDate.getDate() === today.getDate()
+  );
+}
 
 
 const initialValues = {
@@ -25,6 +44,7 @@ const initialValues = {
 const MeetingTypeList = () => {
   const router = useRouter();
   const [id, setId] = useState('')
+  const [meetings, setMeetings] = useState<undefined | IRoomDetails>(undefined);
   const [description,setDesc] = useState('')
   const [meetingState, setMeetingState] = useState<
     'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
@@ -32,11 +52,34 @@ const MeetingTypeList = () => {
   const [values, setValues] = useState(initialValues);
   const {subscription} = useContext(subscriptionContext)
 
+
+ 
+
   const { user } = useUser();
   const { toast } = useToast();
 
+  async function getRooms() {
+    try {
+      const res = await axios.get(`/api/v1/get-rooms?user_id=${user?.id}`);
+      setMeetings(res.data.rooms[res.data.rooms.length-1])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getRooms()
+  },[user])
+
+
   const createMeeting = async () => {
     if ( !user) return;
+    if(meetings){
+      if(subscription == "free" && isToday(meetings.start_time)){
+        toast({ title: 'You are on our Free Plan, which lets you host 1 meeting each day!. for host multiple meet upgrade plan.' });
+        return
+      }
+    }
     try {
       if (!values.dateTime) {
         toast({ title: 'Please select a date and time' });
@@ -50,7 +93,7 @@ const MeetingTypeList = () => {
         end_time = new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()
         // end_time = new Date(Date.now() +  7 * 60 * 1000).toUTCString()
       }else{
-        end_time = new Date(Date.now() +  40 * 60 * 1000).toUTCString()
+        end_time = new Date(Date.now() +  planslist['free'].min * 60 * 1000).toUTCString()
       }
       // isSchedule,description,scheduleTime
       let res;

@@ -117,7 +117,7 @@ const {user} = useUser()
         
         </div>
 
-      <div className='flex items-center flex-wrap gap-5'>
+      <div className='flex items-center justify-center flex-wrap gap-5'>
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl flex items-center'>Total Meetings <span className='ml-2 text-white cursor-pointer' title='Total number of meetings will be displayed here that how many meetings you have done.'><FaQuestionCircle/></span></h2>
@@ -149,14 +149,14 @@ const {user} = useUser()
         </div>
       </div>
 
-      <div className='w-[40rem] mx-auto'>
+      {/* <div className='w-[40rem] mx-auto'>
         <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Room Durations</h3>
         <Bar data={barData} />
       </div>
       <div className='w-[40rem] mx-auto'>
         <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Rooms Created Over Time</h3>
         <Line data={lineData} />
-      </div>
+      </div> */}
     </section>
   )
 }
