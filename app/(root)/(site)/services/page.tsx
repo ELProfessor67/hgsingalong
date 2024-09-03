@@ -84,11 +84,11 @@ const page = () => {
         xmlSpace="preserve"
         className=""
       >
-        <polygon points="2560 0 2560 100 0 100" />
+        <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
       </svg>
     </div>
   </section>
-  <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6 bg-section-secondary">
+  <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6 !bg-background-1">
     <div className="container">
       {/* Title */}
       {/* Section title */}
@@ -304,7 +304,7 @@ const page = () => {
       </div>
     </div>
   </section>
-  <section className="slice slice-lg">
+  <section className="slice slice-lg !bg-background-1">
     <div className="container">
       <div className="row">
         <div className="col-lg-6">
@@ -602,7 +602,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" />
+              <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
             </svg>
           </div>
           {/* Footer */}

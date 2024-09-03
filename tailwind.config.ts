@@ -19,13 +19,19 @@ const config = {
     },
     extend: {
       colors: {
-        // "backgroud-primary": "#171733",
+       
         "backgroud-primary": "#ffffff",
         "backgroud-secondary": "#000000",
         "foregroud-primary": "#71C9CE",
         "foregroud-secondary": "#ffffff",
         "para-color": "#242424",
         "heading-color":"#564f4f",
+        background: {
+          1: "#e6fffd",
+          2: "#c9dae0"
+        },
+
+
         dark: {
           1: '#fafbfe',
           2: '#fafbfe',

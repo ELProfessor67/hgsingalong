@@ -43,11 +43,11 @@ const page = () => {
         xmlSpace="preserve"
         className=""
       >
-        <polygon points="2560 0 2560 100 0 100" />
+        <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
       </svg>
     </div>
   </section>
-  <section className="slice slice-sm">
+  <section className="slice slice-sm !bg-background-1">
     <div className="container">
       {/* <span class="badge badge-primary badge-pill">Our vision</span> */}
       <div className="row mt-4">
@@ -168,7 +168,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" />
+              <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
             </svg>
           </div>
           {/* Footer */}

@@ -27,7 +27,7 @@ const page = () => {
     }
 
     return (
-        <section className="text-gray-400 body-font p-10 zeeshan mb-8">
+        <section className="text-gray-400 body-font p-10 zeeshan pb-14 bg-background-1">
             <div className="flex items-center justify-center flex-col mb-12">
 
                 <h2 className=" mt-4">

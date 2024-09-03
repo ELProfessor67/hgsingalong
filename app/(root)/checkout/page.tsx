@@ -81,7 +81,7 @@ const page = ({searchParams}:props) => {
   }
 
   return (
-    <section className="bg-white py-8 antialiased  md:py-16 min-h-[100vh] flex items-center justify-center">
+    <section className="bg-background-1 py-8 antialiased  md:py-16 min-h-[100vh] flex items-center justify-center">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">

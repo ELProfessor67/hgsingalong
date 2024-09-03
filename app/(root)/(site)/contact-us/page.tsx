@@ -85,12 +85,12 @@ const page = () => {
         xmlSpace="preserve"
         className=""
       >
-        <polygon points="2560 0 2560 100 0 100" />
+        <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
       </svg>
     </div>
   </section>
   <section
-    className="slice slice-lg"
+    className="slice slice-lg !bg-background-1"
     id="sct-form-contact"
     style={{ paddingTop: "3rem" }}
   >
@@ -197,7 +197,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" />
+              <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
             </svg>
           </div>
           {/* Footer */}

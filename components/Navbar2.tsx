@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 const Navbar2 = () => {
   const { user } = useUser();
   return (
-    <nav className="navbar navbar-expand-lg  bg-white">
+    <nav className="navbar navbar-expand-lg  bg-background-1">
       <div className="container">
         {/* Brand */}
         <a className="#" href="/">

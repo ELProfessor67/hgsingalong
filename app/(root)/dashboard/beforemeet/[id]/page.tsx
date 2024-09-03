@@ -77,7 +77,7 @@ const page = ({ params }: PropsType) => {
     }
     return (
         <section className='flex items-center justify-center p-5 flex-col'>
-            <div className='w-[30rem] min-h-[20rem] relative shadow-md rounded-md border border-gray-100 flex p-4 flex-col gap-5'>
+            <div className='w-[30rem] min-h-[20rem] relative shadow-md rounded-md border border-gray-100 flex p-4 flex-col gap-5 bg-white'>
                 <h2 className='text-black/90 text-3xl text-center'>Your Meeting Ready</h2>
                 <p className='text-black/60 text-center'>Or share this meeting link with others that you want in the meeting</p>
                 <button className='bg-foregroud-primary px-4 py-2 rounded-md text-white flex items-center gap-3 w-[9rem] hover:scale-105' onClick={() => setOpen(true)}>Share Now <IoMdShareAlt /></button>

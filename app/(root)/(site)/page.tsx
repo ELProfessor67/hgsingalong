@@ -136,7 +136,7 @@ const page = () => {
       {/* Navbar */}
       <Navbar2 />
       {/* Main content */}
-      <section className="slice py-5">
+      <section className="slice py-5 !bg-background-1">
         <div className="container">
           <div className="row row-grid align-items-center">
             <div className="col-12 col-md-5 col-lg-6 order-md-2 text-center flex items-center justify-center">
@@ -173,7 +173,8 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6 bg-section-secondary">
+
+      <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6  !bg-background-2">
         <div className="container">
           {/* Title */}
           {/* Section title */}
@@ -295,7 +296,7 @@ const page = () => {
 
 
 
-      <section className='section py-12 px-5 !flex !flex-col !items-center !justify-center'>
+      <section className='section py-12 px-5 !flex !flex-col !items-center !justify-center !bg-background-1'>
 
         <div className="flex items-center justify-center flex-col mb-12">
 
@@ -424,9 +425,11 @@ const page = () => {
 
 
       </section>
+      
+    
 
-
-      <section className="slice slice-lg bg-section-dark pt-5 pt-lg-8">
+      
+      <section className="slice slice-lg bg-dark pt-5 pt-lg-8 ">
         {/* SVG separator */}
         <div className="shape-container shape-line shape-position-top shape-orientation-inverse">
           <svg
@@ -442,7 +445,7 @@ const page = () => {
             xmlSpace="preserve"
             className=""
           >
-            <polygon points="2560 0 2560 100 0 100" />
+            <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
           </svg>
         </div>
         {/* Container */}
@@ -468,7 +471,10 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="slice pt-0">
+     
+      
+
+      <section className="slice pt-0 !bg-background-2 pt-7">
         <div className="container position-relative zindex-100">
           <div className="flex flex-wrap items-center justify-center gap-7">
             {
@@ -749,7 +755,7 @@ const page = () => {
 
 
 
-      <section className='section !bg-transparent'>
+      <section className='section  !bg-background-1'>
         <div className="flex items-center justify-center flex-col mb-12">
 
           <h2 className=" mt-4 main-header">
@@ -813,7 +819,7 @@ const page = () => {
             </div>
           </div>
 
-          <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 my-2'>
+          <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 mt-2'>
             <div className=' w-full md:w-[50%] p-4'>
               <div className="h1 !text-3xl text-black/90">
                 Enter into your meeting room
@@ -834,7 +840,7 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="slice slice-sm">
+      <section className="slice slice-sm !bg-background-2">
         <div className="container">
           <div className="row">
             <div className="col-lg-12" style={{ textAlign: "center" }}>
@@ -906,7 +912,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" />
+              <polygon points="2560 0 2560 100 0 100" fill='#c9dae0'/>
             </svg>
           </div>
           {/* Footer */}

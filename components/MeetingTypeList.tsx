@@ -76,7 +76,7 @@ const MeetingTypeList = () => {
     if ( !user) return;
     if(meetings){
       if(subscription == "free" && isToday(meetings.start_time)){
-        toast({ title: 'You are on our Free Plan, which lets you host 1 meeting each day!. for host multiple meet upgrade plan.' });
+        toast({ title: 'You are on our Free Plan, which lets you host 1 meeting each day for host multiple host upgrade your plan.' });
         return
       }
     }
