@@ -111,27 +111,26 @@ const {user} = useUser()
       
       <div className="flex items-center justify-center flex-col mb-12">
 
-          <h2 className=" mt-4 main-header !text-4xl">
+          <h2 className=" mt-4 main-header !text-4xl !text-white">
             Dashboard
           </h2>
         
         </div>
-
       <div className='flex items-center justify-center flex-wrap gap-5'>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)"}}>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl flex items-center'>Total Meetings <span className='ml-2 text-white cursor-pointer' title='Total number of meetings will be displayed here that how many meetings you have done.'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-7xl'>{totalroom}</h1>
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%)"}}>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl flex items-center'>Days Left <span className='ml-2 text-white cursor-pointer' title='How many days are left in ending your plan
 .'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-7xl'>{details?.subscription_expire ? daysLeftUntil(details?.subscription_expire) : 0}</h1>
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center'>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #cc208e 0%, #6713d2 100%)"}}>
           <div className='flex items-center justify-center flex-col gap-4'>
             <h2 className='text-white/70 text-xl flex items-center'>Current Plan <span className='ml-2 text-white cursor-pointer' title='You can see your current plan from here if you want to upgrade click on the upgrade button below .'><FaQuestionCircle/></span></h2>
             <h1 className='text-white text-3xl'>{subscription}</h1>

@@ -10,9 +10,8 @@
 
 *,
 body,
-html
-{
- font-family: "Rubik", sans-serif !important;
+html {
+  font-family: "Rubik", sans-serif !important;
 }
 
 * {
@@ -146,8 +145,7 @@ body {
 }
 
 
-button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
-{
+button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny {
   @apply !bg-foregroud-primary !border-none !shadow-sm;
 }
 
@@ -197,8 +195,8 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
   background-image: radial-gradient(at 88% 40%,
       rgb(255, 255, 255) 0px,
       transparent 85%),
-    radial-gradient(at 49% 30%, rgb(255, 255, 255) 0px, transparent 85%),
-    radial-gradient(at 14% 26%, rgb(255, 255, 255) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, #1f2226 0px, transparent 85%),
+    radial-gradient(at 14% 26%, #1f2226 0px, transparent 85%),
     radial-gradient(at 0% 64%, #16ecec 0px, transparent 85%),
     radial-gradient(at 41% 94%, #1ebbc4 0px, transparent 85%),
     radial-gradient(at 100% 99%, #7ff4fa 0px, transparent 85%);
@@ -258,8 +256,7 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
   z-index: 100;
 }
 
-.secvice-box > div > div:hover
-{
+.secvice-box>div>div:hover {
   transition: all .3s;
   background: orange;
 }
@@ -275,9 +272,9 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
   transform: rotate(calc(-360deg/6 * var(--i)));
 } */
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .secvice-box {
-    transform-origin: 160px !important; 
+    transform-origin: 160px !important;
   }
 }
 
@@ -301,24 +298,32 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny
   font-family: "Source Sans 3", sans-serif !important;
 }
 
-
-.main-header
-{
-  @apply !text-heading-color !font-bold;
+.text-gradient {
+    background: #A79369 !important;
+    background: linear-gradient(to right, #A79369 0%, #CFBF93 50%, #9A855C 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
-.main-para
-{
-  @apply !text-para-color;
+
+
+.main-header {
+  @apply text-heading-color !font-bold;
+
+  background: #A79369;
+  background: linear-gradient(to right, #A79369 0%, #CFBF93 50%, #9A855C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-para {
+  @apply text-para-color;
   font-size: 18px !important;
   font-weight: 400 !important;
   line-height: 27px !important;
 }
 
-.gradient-insta
-{
+.gradient-insta {
   background: #833ab4;
-  background: linear-gradient(
-    to right,
-    #833ab4,#fd1d1d,#fcb045
-  );
+  background: linear-gradient(to right,
+      #833ab4, #fd1d1d, #fcb045);
 }

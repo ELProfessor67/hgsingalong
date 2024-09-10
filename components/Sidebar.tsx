@@ -30,7 +30,7 @@ const Sidebar = () => {
   };
   
   return (
-    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-background-1 shadow-md p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
+    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-background-3 shadow-md p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
           const isActive = pathname === item.route
@@ -47,12 +47,12 @@ const Sidebar = () => {
                 }
               )}
             >
-              <span className={`${isActive ? 'text-white': 'text-black/70'}`}>
+              <span className={`${isActive ? 'text-white': 'text-white'}`}>
 
                {Icon}
               </span>
               
-              <p className={`text-lg  ${isActive ? "text-white" : "text-black/70"} font-semibold `}>
+              <p className={`text-lg  ${isActive ? "text-white" : "text-white"} font-semibold `}>
                 {item.label}
               </p>
             </Link>
@@ -62,12 +62,12 @@ const Sidebar = () => {
       
      
 
-      <div className='py-2 border-b border-t border-black/40 flex items-center justify-between'>
+      <div className='py-2 border-b border-t border-white/40 flex items-center justify-between'>
         <div className='flex flex-col'>
-          <h4 className='text-black/90 text-2xl mb-1'>{subscription}</h4>
-          <p className='text-black/70 text-xs'> No Cost ${planslist[subscription].price}/month</p>
+          <h4 className='text-white/90 text-2xl mb-1'>{subscription}</h4>
+          <p className='text-white/70 text-xs'> No Cost ${planslist[subscription].price}/month</p>
         </div>
-       <Link href={'/plans'} className='block py-2 px-4 text-black/90 rounded-3xl hover:bg-black/30 text-sm'>Upgrade</Link>
+       <Link href={'/plans'} className='block py-2 px-4 text-white/90 rounded-3xl hover:bg-white/30 text-sm'>Upgrade</Link>
       </div>
       
     </section>

@@ -131,12 +131,21 @@ const page = () => {
     setOpen(false);
     setOpenShare(true)
   }
+  // style={{
+  //   backgroundImage: `linear-gradient(to top right, rgba(0,0,0,.3), rgba(0,0,0,.3)), url('/images/bg-1.png')`,
+  // }}
   return (
     <div className='zeeshan'>
       {/* Navbar */}
       <Navbar2 />
       {/* Main content */}
-      <section className="slice py-5 !bg-background-1">
+      <section className="slice  bg-cover bg-no-repeat !pt-[8rem] !bg-background-4"  >
+        <div className='absolute bottom-1 left-1 z-0'>
+          <img src='/images/bottom-box-shape.png' />
+        </div>
+        <div className='absolute bottom-0 right-0 z-0'>
+          <img src='/images/bottom-line.png' />
+        </div>
         <div className="container">
           <div className="row row-grid align-items-center">
             <div className="col-12 col-md-5 col-lg-6 order-md-2 text-center flex items-center justify-center">
@@ -150,10 +159,10 @@ const page = () => {
             </div>
             <div className="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5" style={{ flex: "xyz" }}>
 
-              <h1 className="display-4 text-center  text-md-left mb-3 !font-bold !text-black">
+              <h1 className="display-4 text-center  text-md-left mb-3 !font-bold !text-white">
                 It's time to set up your <strong className=" !text-foregroud-primary">virtual meetings</strong>
               </h1>
-              <p className="lead text-center text-md-left !font-[400] !text-para-color">
+              <p className="lead text-center text-md-left !font-[400] !text-white/90">
                 Now you can set up your secured and high-quality virtual meetings on Sing Along.
               </p>
               <div className="text-center text-md-left mt-5">
@@ -166,30 +175,36 @@ const page = () => {
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg></span>
                 </a>
-                <a href="http://localhost/hgsingalong/page/how-to-use"
-                  className="btn btn-neutral btn-icon d-none d-lg-inline-block !border-2 hover:!border-foregroud-primary">Read Guidelines</a>
+                <a href="/how-to-use"
+                  className="btn btn-neutral btn-icon d-none d-lg-inline-block !text-white !border-2 hover:!border-foregroud-primary">Read Guidelines</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6  !bg-background-2">
-        <div className="container">
+      <section className="slice slice-lg pt-lg-6 pb-0 pb-lg-6  !bg-background-3 relative">
+        <div className='absolute top-1 left-1 z-0'>
+          <img src='/images/left-plus.png' />
+        </div>
+        <div className='absolute bottom-0 right-0 z-0'>
+          <img src='/images/bottom-line.png' />
+        </div>
+        <div className="container z-10">
           {/* Title */}
           {/* Section title */}
           <div className="row mb-5 justify-content-center text-center">
-            <div className="col-lg-6">
+            <div className="col-lg-10">
               {/*
         <span className="badge badge-soft-success badge-pill badge-lg">
           Get started
         </span>
           */}
-              <h2 className=" mt-4 main-header">
+              <h2 className=" mt-4 main-header !text-white !text-4xl" style={{ color: 'white' }}>
                 Ready to use + carefully crafted performance for quality meetings
               </h2>
               <div className="mt-2">
-                <p className="lead lh-180 main-para">
+                <p className="lead lh-180 main-para !text-white/90">
                   We offer competitive pricing, great features, and better value.
                   See our difference!
                 </p>
@@ -200,7 +215,7 @@ const page = () => {
           <div className="row mt-5">
 
             <div className="col-md-4 flex justify-center">
-              <div className='card card-awesome'>
+              <div className=' card  card-awesome-black '>
 
                 <div className="card-body !pb-3">
                   <div className="pt-4 pb-5">
@@ -217,8 +232,8 @@ const page = () => {
                       alt="Illustration"
                     />
                   </div>
-                  <h5 className="h4 lh-130 mb-3">Easy to set up &amp; use</h5>
-                  <p className=" mb-0  main-para">
+                  <h5 className="h4 lh-130 mb-3 !text-white">Easy to set up &amp; use</h5>
+                  <p className=" mb-0  main-para !text-white/80">
                     No need to download or install any software. Just start a
                     meeting and share the link with your guests or participants to
                     join using any web browser, or our easy-to-use app.
@@ -227,7 +242,7 @@ const page = () => {
               </div>
             </div>
             <div className="col-md-4 flex justify-center">
-              <div className='card card-awesome'>
+              <div className=' card  card-awesome-black'>
 
 
                 <div className="card-body !pb-3">
@@ -245,8 +260,8 @@ const page = () => {
                       alt="Illustration"
                     />
                   </div>
-                  <h5 className="h4 lh-130 mb-3 !black/90">Fully controlled by you</h5>
-                  <p className=" mb-0 main-para">
+                  <h5 className="h4 lh-130 mb-3 !text-white/90">Fully controlled by you</h5>
+                  <p className=" mb-0 main-para !text-white/80">
                     We have completely managed servers so you have full control of
                     your own meetings. You can set up{" "}
                     <b
@@ -261,7 +276,7 @@ const page = () => {
               </div>
             </div>
             <div className="col-md-4 flex justify-center">
-              <div className='card card-awesome'>
+              <div className=' card card-awesome-black '>
 
 
                 <div className="card-body !pb-3">
@@ -273,10 +288,10 @@ const page = () => {
                       alt="Illustration"
                     />
                   </div>
-                  <h5 className="h4 lh-130 mb-3 !black/90">
+                  <h5 className="h4 lh-130 mb-3 !text-white/90">
                     Unlimited Meetings &amp; Recordings
                   </h5>
-                  <p className=" mb-0 main-para">
+                  <p className=" mb-0 main-para !text-white/80">
                     Go with unlimited meetings and recordings as per your activated
                     plan with no hidden charges. We offer{" "}
                     <b
@@ -296,17 +311,21 @@ const page = () => {
 
 
 
-      <section className='section py-12 px-5 !flex !flex-col !items-center !justify-center !bg-background-1'>
+      <section className='section py-12 px-5 !flex !flex-col !items-center !justify-center '
+        style={{
+          backgroundImage: `linear-gradient(to top right, rgba(31,34,38,.7), rgba(31,34,38,.7)), url('/images/bg-2.jpg')`,
+        }}
+      >
 
         <div className="flex items-center justify-center flex-col mb-12">
 
-          <h2 className=" mt-4 main-header">
+          <h2 className=" mt-4 main-header !text-white">
             Why HG Sing Along
           </h2>
           <div className="mt-2">
-            <p className="leading-7 max-w-[35rem] text-center font-[300] text-[1.125rem] main-para">
-              We offer competitive pricing, great features, and better value.
-              See our difference!
+            <p className="leading-7 max-w-[35rem] text-center font-[300] text-[1.125rem] main-para !text-white/80">
+
+              Discover the difference with our competitive pricing, exceptional features, and unbeatable value—an experience we don't want you to miss!
             </p>
           </div>
 
@@ -315,7 +334,7 @@ const page = () => {
           <div className='services -left-[50%] relative w-full h-full flex justify-center items-center cursor-pointer '>
             <div className='secvice-box flex' style={getStyle(1)} data-target="content1">
               <div className='flex items-start'>
-                <h2 className='absolute -left-[180%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700]'>Crystal Clear Sound</h2>
+                <h2 className='absolute -left-[180%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Crystal Clear Sound</h2>
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
                   <span className='text-white text-3xl'><FaVolumeDown /></span>
@@ -331,7 +350,7 @@ const page = () => {
                   <span className='text-white text-3xl'><FaHandPointUp /></span>
 
                 </div>
-                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700]'>Easy To Use</h2>
+                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Easy To Use</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(3)} data-target="content3">
@@ -343,7 +362,7 @@ const page = () => {
                   <span className='text-white text-3xl'><FaHandshake /></span>
 
                 </div>
-                <h2 className='absolute !-right-[260%] md:!-right-[210%] -top-[5%] md:top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700]'>Collabrative</h2>
+                <h2 className='absolute !-right-[260%] md:!-right-[210%] -top-[5%] md:top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Collabrative</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(4)} data-target="content4">
@@ -355,13 +374,13 @@ const page = () => {
                   <span className='text-white text-3xl'><IoDiamondOutline /></span>
 
                 </div>
-                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700]'>Features Rich</h2>
+                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Features Rich</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(5)} data-target="content5">
               <div className='flex items-start relative'>
 
-                <h2 className='absolute -left-[110%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700]'>Extandable</h2>
+                <h2 className='absolute -left-[110%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Extandable</h2>
 
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
@@ -373,7 +392,7 @@ const page = () => {
             <div className='secvice-box flex' style={getStyle(6)} data-target="content6">
               <div className='flex items-start relative'>
 
-                <h2 className='absolute -left-[80%] md:-left-[130%] top-[25%] w-[10rem] md:!text-xl !font-[700] !text-[10px]'>Secure</h2>
+                <h2 className='absolute -left-[80%] md:-left-[130%] top-[25%] w-[10rem] md:!text-xl !font-[700] !text-[10px] !text-white'>Secure</h2>
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
                   <span className='text-white text-3xl'><FaLock /></span>
@@ -388,35 +407,35 @@ const page = () => {
           </div>
           <div className='content absolute inset-0 overflow-hidden flex items-center justify-center'>
             <div className='contentBox active' id='content0'>
-              <h1 className='!text-foregroud-primary !text-xl md:!text-4xl !font-[700]'>Why HGSIGNALONG ?</h1>
+              <h1 className='!text-white !text-xl md:!text-4xl !font-[700] '></h1>
             </div>
             <div className='contentBox' id='content1'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content2'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content3'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content4'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content5'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content6'>
-              <p className='text-gray-500 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
@@ -425,11 +444,14 @@ const page = () => {
 
 
       </section>
-      
-    
 
-      
-      <section className="slice slice-lg bg-dark pt-5 pt-lg-8 ">
+
+
+
+      <section className="slice slice-lg !bg-background-4 pt-5 pt-lg-8 relative ">
+        <div className='absolute top-1 left-1 z-0'>
+          <img src='/images/left-plus.png' />
+        </div>
         {/* SVG separator */}
         <div className="shape-container shape-line shape-position-top shape-orientation-inverse">
           <svg
@@ -445,7 +467,7 @@ const page = () => {
             xmlSpace="preserve"
             className=""
           >
-            <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
+            <polygon points="2560 0 2560 100 0 100" fill='#1a1d22' />
           </svg>
         </div>
         {/* Container */}
@@ -454,7 +476,7 @@ const page = () => {
             <div className="row justify-content-center">
               <div className="col-md-10 text-center">
                 <div className="mt-4 mb-6">
-                  <h2 className="h1 text-white !font-[700]">Are you ready to grow faster?</h2>
+                  <h2 className="h1 text-white !font-[700] text-gradient">Are you ready to grow faster?</h2>
                   <h4 className="text-white mt-3 !font-[500]">
                     Activate any plan and get started
                   </h4>
@@ -471,10 +493,15 @@ const page = () => {
           </div>
         </div>
       </section>
-     
-      
 
-      <section className="slice pt-0 !bg-background-2 pt-7">
+
+
+      <section className="slice pt-0 !bg-background-3 pt-7 relative">
+
+        <div className='absolute bottom-1 left-1 z-0'>
+          <img src='/images/bottom-box-shape.png' />
+        </div>
+
         <div className="container position-relative zindex-100">
           <div className="flex flex-wrap items-center justify-center gap-7">
             {
@@ -537,23 +564,23 @@ const page = () => {
                     plan != "starter" &&
                     <div className="w-[18rem]">
                       <div
-                        className="card card-awesome card-pricing text-center px-3 hover-scale-110"
+                        className="card card-awesome-black card-pricing text-center px-3 hover-scale-110"
 
                       >
                         <div className="card-header py-5 border-0 delimiter-bottom">
-                          <div className="h1 text-center mb-0">
-                            $<span className="price font-weight-bolder">{planslist[plan].price}</span>
+                          <div className="h1 text-center mb-0 !text-white">
+                            $<span className="price font-weight-bolder ">{planslist[plan].price}</span>
                           </div>
-                          <span className="h6 text-muted">{planslist[plan].title}</span>
+                          <span className="h6  !text-white">{planslist[plan].title}</span>
                         </div>
                         <div className="card-body !p-1">
-                          <span className="h6 text-muted" style={{ fontWeight: "bold" }}>
+                          <span className="h6 !text-white" style={{ fontWeight: "bold" }}>
                             Features:
                           </span>
                           <ul className="list-unstyled text-sm mb-4">
                             {
                               planslist[plan].features.map(text => (
-                                <li className="py-2 !text-left">
+                                <li className="py-2 !text-left  !text-white">
                                   <IoMdCheckmark /> {text}
                                 </li>
                               ))
@@ -725,7 +752,7 @@ const page = () => {
             </div> */}
           </div>
           <div className="mt-5 text-center">
-            <p className="mb-2">
+            <p className="mb-2 !text-white">
               All plans include active-subscription free support. Need more?
             </p>
             <a
@@ -755,16 +782,21 @@ const page = () => {
 
 
 
-      <section className='section  !bg-background-1'>
+      <section className='section  !bg-background-4 relative'>
+        <div className='absolute top-1 left-1 z-0'>
+          <img src='/images/left-plus.png' />
+        </div>
+        <div className='absolute bottom-0 right-0 z-0'>
+          <img src='/images/bottom-line.png' />
+        </div>
         <div className="flex items-center justify-center flex-col mb-12">
 
-          <h2 className=" mt-4 main-header">
+          <h2 className=" mt-4 main-header !text-white">
             How it works
           </h2>
           <div className="mt-2">
-            <p className="leading-7 max-w-[35rem] text-center font-[300] text-[1.125rem] main-para">
-              Enjoyable video and audio communication
-              tools easy to use and navigate with no dull moment.
+            <p className="leading-7 max-w-[35rem] text-center font-[300] text-[1.125rem] main-para !text-white/80">
+              Experience engaging video and audio communication tools that are easy to use and navigate. There's never a dull moment!
             </p>
           </div>
 
@@ -772,11 +804,11 @@ const page = () => {
         <div className='container'>
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 my-2'>
             <div className=' w-full md:w-[50%] p-4'>
-              <div className="h1 !text-3xl text-black/90">
-                Create account to host a meeting
+              <div className="h1 !text-3xl !text-white/90">
+                Create an account to host a meeting
               </div>
-              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para">
-                Sign up with your Name, Email address, and Password. Then check your email to verify your account. Once your account is verified, you will have full access to Trivoh workspace.
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
+                Sign up with your Name, Email Address, and Password. Then, check your email to verify your account. Once your account is verified, you will have full access to Trivoh workspace.
               </p>
               <div className="text-center text-md-left mt-3">
                 <a href="/sign-in" className="btn btn-primary !border-none !bg-foregroud-primary btn-icon !font-[500]">
@@ -809,11 +841,11 @@ const page = () => {
             </div>
 
             <div className=' w-full md:w-[50%] p-4'>
-              <div className="h1 !text-3xl text-black/90">
-                Setting up your meeting
+              <div className="h1 !text-3xl !text-white/90">
+                Set up your meeting
               </div>
-              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para">
-                To set-up and schedule a meeting, click on Host a meeting which will give you full control of the meeting you have created. Once your meeting is created share with your participants or add to your calendar.
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
+                To set-up and schedule a meeting, click on Host a meeting which will give you full control of the meeting you have created. Once your meeting is created, share the link with your participants or add it to your calendar.
               </p>
 
             </div>
@@ -821,11 +853,11 @@ const page = () => {
 
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 mt-2'>
             <div className=' w-full md:w-[50%] p-4'>
-              <div className="h1 !text-3xl text-black/90">
-                Enter into your meeting room
+              <div className="h1 !text-3xl !text-white/90">
+                Enter your meeting room
               </div>
-              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para">
-                It is not compulsory to have an account to Join a meeting on Trivoh, join any meetings using the meeting link or ID, insert your name, set-up your microphones and videos and you are ready for your meeting.
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
+                It is not compulsory to have an account to join a meeting on Trivoh, Join any meetings using the meeting link or ID, Simply insert your name, set up your microphones and videos, and you are good to go.
 
 
               </p>
@@ -840,7 +872,12 @@ const page = () => {
           </div>
         </div>
       </section>
-      <section className="slice slice-sm !bg-background-2">
+
+
+      <section className="slice slice-sm !bg-background-3 relative">
+        <div className='absolute bottom-1 left-1 z-0'>
+          <img src='/images/bottom-box-shape.png' />
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-lg-12" style={{ textAlign: "center" }}>
@@ -850,7 +887,7 @@ const page = () => {
               >
                 Latest Public Meetings
               </span>
-              <p className="lh-180 mt-4 mb-5 main-para">
+              <p className="lh-180 mt-4 mb-5 main-para !text-white/80">
                 We offer Public and Private meetings. Only Public meetings (live and
                 scheduled) will be displayed on our website so other users can join
                 those meetings.
@@ -863,7 +900,7 @@ const page = () => {
               <div className="card shadow-none " style={{ border: "1px solid" }}>
                 <div className="p-3 d-flex">
                   <p style={{ fontWeight: "bold", marginBottom: 0 }}>
-                    No meeting is available for this week!
+                    No Public meeting is scheduled for this week!
                   </p>
                 </div>
               </div>
@@ -896,7 +933,7 @@ const page = () => {
       </section>
       {/* End Main Content */}
       <footer className="position-relative" id="footer-main">
-        <div className="footer pt-lg-7 footer-dark bg-dark">
+        <div className="footer pt-lg-7 footer-dark !bg-background-4">
           {/* SVG shape */}
           <div className="shape-container shape-line shape-position-top shape-orientation-inverse">
             <svg
@@ -912,7 +949,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" fill='#c9dae0'/>
+              <polygon points="2560 0 2560 100 0 100" fill='#1f2226' />
             </svg>
           </div>
           {/* Footer */}
@@ -1078,7 +1115,7 @@ const page = () => {
             placeholder='Leave a message, if you want'
           />
         </div>
-        <p className='text-center'>Invite Your Friends and Family! <br/> Thank you for using our meeting platform. <span className='text-foregroud-primary cursor-pointer' onClick={handleShare}>share</span> the ease of seamless connections with your friends and family. Invite them to join today! </p>
+        <p className='text-center'>Invite Your Friends and Family! <br /> Thank you for using our meeting platform. <span className='text-foregroud-primary cursor-pointer' onClick={handleShare}>share</span> the ease of seamless connections with your friends and family. Invite them to join today! </p>
 
 
         <span className='text-foregroud-primary text-center'><Link href={'/plans'}>See Our Plans</Link></span>

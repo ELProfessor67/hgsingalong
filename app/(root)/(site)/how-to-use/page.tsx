@@ -10,149 +10,159 @@ const page = () => {
       {/* Navbar */}
       <Navbar2 />
       <>
-  {/* Main content */}
-  <section className="slice py-2 pt-lg-4 pb-lg-5 bg-dark">
-    {/* Container */}
-    <div className="container">
-      <div className="row row-grid align-items-center">
-        <div className="col-lg-12">
-          {/* Heading */}
-          <h1 className="h1 text-white text-center text-lg-left my-4">
-            How to use: FAQs
-          </h1>
-          {/* Text */}
-          <p className="lead text-white text-center text-lg-left opacity-8">
-            You can also read the frequently asked questions about how to use HG
-            Sing Along on website or App.
-          </p>
-        </div>
-      </div>
-    </div>
-    {/* SVG separator */}
-    <div className="shape-container shape-line shape-position-bottom">
-      <svg
-        width="2560px"
-        height="100px"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        preserveAspectRatio="none"
-        x="0px"
-        y="0px"
-        viewBox="0 0 2560 100"
-    
-        xmlSpace="preserve"
-        className=""
-      >
-        <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
-      </svg>
-    </div>
-  </section>
-  <section className="slice slice-sm !bg-background-1">
-    <div className="container">
-      {/* <span class="badge badge-primary badge-pill">Our vision</span> */}
-      <div className="row mt-4">
-        <div className="col-lg-12">
-          <p>
-            <strong>How can I create my account?</strong>
-          </p>
-          <p>
-            You can visit the <a href="https://hgsingalong.com/login">login</a>{" "}
-            page on the website or click on Register on the app to create or log
-            in to your account. You will need your email address, name, country,
-            and password to create an account.
-          </p>
-          <p>
-            <strong> How can I start/schedule my first meeting?</strong>
-          </p>
-          <p>
-            On the website:
-            <br />
-          </p>
-          <ol>
-            <li>
-              After login, on dashboard you will see Start Meeting and Schedule
-              meeting buttons, click on any of that button to quickly start or
-              schedule meeting respectively.
-            </li>
-            <li>
-              You can also start/schedule meeting by clicking on meetings page
-              (left side menu) and click on New meeting button and then fill
-              form accordingly.
-            </li>
-          </ol>
-          On the App:
-          <br />
-          <ol>
-            <li>
-              After login, click on start meeting and enter meeting title then
-              click on start to quickly start meting.
-            </li>
-            <li>
-              You can also click on schedule to schedule your meeting for any
-              specific time.
-            </li>
-          </ol>
-          <p />
-          <p>
-            <strong>Where will my recording(s) be stored?</strong>
-          </p>
-          <p>
-            All recordings of your meetings on both the website and the app will
-            be stored on our server (in your account). You can watch any of them
-            by clicking on Recordings on the left side of the menu on the
-            website, or My Meetings on the app.
-          </p>
-          <p>
-            <strong>How can I control my meeting? </strong>
-          </p>
-          <p>
-            Once a meeting has started, the moderator or the host will see some
-            extra controls that are not visible to other users. Use these
-            controls to manage the security, privacy, audio/video, recordings,
-            and other things on both the app and the website.
-          </p>
-          <p>
-            <strong>How can users/audience join my meeting?</strong>
-          </p>
-          <p>
-            Once your meeting is created/scheduled, you will see a link on the
-            website or the app. Share that link with your users/audience. They
-            will directly join the meeting on the app or the website when they
-            click on the link.
-          </p>
-          <p>
-            <strong>How can I secure meetings from unknown users?</strong>
-          </p>
-          <p>
-            After starting a meeting, you will see options in the security tab,
-            such as Enable Lobby (every new user joining the meeting needs
-            approval from you to join it) or Set Password (only users with the
-            password can join).
-          </p>
-          <p>
-            <strong>How do I enhance the quality of my meetings?</strong>
-          </p>
-          <p>
-            We are using 720p for the video quality of meetings but it all
-            depends on the network connection of all participants. You can
-            manually control the quality by clicking on Performance on the
-            website and selecting adjustments that suit you, or clicking on
-            Audio on the app. The meeting quality on the app will be much better
-            if you are using a good network connection, or Chrome or Firefox on
-            the website.
-          </p>
-          <p>
-            Still have questions? Do{" "}
-            <a href="http://localhost/contact-us">let us know</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-</>
+        {/* Main content */}
+        <section className="slice !pt-[8rem] !py-8 !bg-background-4">
+          {/* Container */}
+          <div className='absolute bottom-1 left-1 z-0'>
+            <img src='/images/bottom-box-shape.png' />
+          </div>
+          <div className="container">
+            <div className="row row-grid align-items-center">
+              <div className="col-lg-12">
+                {/* Heading */}
+                <h1 className="h1 text-gradient text-center text-lg-left my-4">
+                  How to use: FAQs
+                </h1>
+                {/* Text */}
+                <p className="lead text-white text-center text-lg-left opacity-8">
+                  You can also read the frequently asked questions about how to use HG
+                  Sing Along on website or App.
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* SVG separator */}
+          <div className="shape-container shape-line shape-position-bottom">
+            <svg
+              width="2560px"
+              height="100px"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              preserveAspectRatio="none"
+              x="0px"
+              y="0px"
+              viewBox="0 0 2560 100"
 
-  <footer className="position-relative" id="footer-main">
-        <div className="footer pt-lg-7 footer-dark bg-dark">
+              xmlSpace="preserve"
+              className=""
+            >
+              <polygon points="2560 0 2560 100 0 100" fill='#1a1d22' />
+            </svg>
+          </div>
+        </section>
+        <section className="slice slice-sm !bg-background-3">
+          <div className='absolute bottom-1 left-1 z-0'>
+            <img src='/images/bottom-box-shape.png' />
+          </div>
+          <div className='absolute bottom-0 right-0 z-0'>
+            <img src='/images/bottom-line.png' />
+          </div>
+
+          <div className="container">
+            {/* <span class="badge badge-primary badge-pill">Our vision</span> */}
+            <div className="row mt-4">
+              <div className="col-lg-12 text-white/80">
+                <p>
+                  <strong>How can I create my account?</strong>
+                </p>
+                <p>
+                  You can visit the <a href="https://hgsingalong.com/login">login</a>{" "}
+                  page on the website or click on Register on the app to create or log
+                  in to your account. You will need your email address, name, country,
+                  and password to create an account.
+                </p>
+                <p>
+                  <strong> How can I start/schedule my first meeting?</strong>
+                </p>
+                <p>
+                  On the website:
+                  <br />
+                </p>
+                <ol>
+                  <li>
+                    After login, on dashboard you will see Start Meeting and Schedule
+                    meeting buttons, click on any of that button to quickly start or
+                    schedule meeting respectively.
+                  </li>
+                  <li>
+                    You can also start/schedule meeting by clicking on meetings page
+                    (left side menu) and click on New meeting button and then fill
+                    form accordingly.
+                  </li>
+                </ol>
+                On the App:
+                <br />
+                <ol>
+                  <li>
+                    After login, click on start meeting and enter meeting title then
+                    click on start to quickly start meting.
+                  </li>
+                  <li>
+                    You can also click on schedule to schedule your meeting for any
+                    specific time.
+                  </li>
+                </ol>
+                <p />
+                <p>
+                  <strong>Where will my recording(s) be stored?</strong>
+                </p>
+                <p>
+                  All recordings of your meetings on both the website and the app will
+                  be stored on our server (in your account). You can watch any of them
+                  by clicking on Recordings on the left side of the menu on the
+                  website, or My Meetings on the app.
+                </p>
+                <p>
+                  <strong>How can I control my meeting? </strong>
+                </p>
+                <p>
+                  Once a meeting has started, the moderator or the host will see some
+                  extra controls that are not visible to other users. Use these
+                  controls to manage the security, privacy, audio/video, recordings,
+                  and other things on both the app and the website.
+                </p>
+                <p>
+                  <strong>How can users/audience join my meeting?</strong>
+                </p>
+                <p>
+                  Once your meeting is created/scheduled, you will see a link on the
+                  website or the app. Share that link with your users/audience. They
+                  will directly join the meeting on the app or the website when they
+                  click on the link.
+                </p>
+                <p>
+                  <strong>How can I secure meetings from unknown users?</strong>
+                </p>
+                <p>
+                  After starting a meeting, you will see options in the security tab,
+                  such as Enable Lobby (every new user joining the meeting needs
+                  approval from you to join it) or Set Password (only users with the
+                  password can join).
+                </p>
+                <p>
+                  <strong>How do I enhance the quality of my meetings?</strong>
+                </p>
+                <p>
+                  We are using 720p for the video quality of meetings but it all
+                  depends on the network connection of all participants. You can
+                  manually control the quality by clicking on Performance on the
+                  website and selecting adjustments that suit you, or clicking on
+                  Audio on the app. The meeting quality on the app will be much better
+                  if you are using a good network connection, or Chrome or Firefox on
+                  the website.
+                </p>
+                <p>
+                  Still have questions? Do{" "}
+                  <a href="http://localhost/contact-us">let us know</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+
+      <footer className="position-relative" id="footer-main">
+        <div className="footer pt-lg-7 footer-dark !bg-background-4">
           {/* SVG shape */}
           <div className="shape-container shape-line shape-position-top shape-orientation-inverse">
             <svg
@@ -168,7 +178,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
+              <polygon points="2560 0 2560 100 0 100" fill='#1a1d22' />
             </svg>
           </div>
           {/* Footer */}

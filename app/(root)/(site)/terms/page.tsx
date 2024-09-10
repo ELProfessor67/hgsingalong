@@ -26,7 +26,7 @@ const page = () => {
       <div className="row row-grid align-items-center">
         <div className="col-lg-12">
           {/* Heading */}
-          <h1 className="h1 text-white text-center text-lg-left my-4">
+          <h1 className="h1 text-gradient text-center text-lg-left my-4">
             Terms and conditions
           </h1>
           {/* Text */}

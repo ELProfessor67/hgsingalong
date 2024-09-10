@@ -44,7 +44,7 @@ export const POST = async (req) => {
         createRequest.setTransactionRequest(transactionRequestType);
 
         const ctrl = new APIControllers.CreateTransactionController(createRequest.getJSON());
-        ctrl.setEnvironment(SDKConstants.endpoint.sandbox);
+        ctrl.setEnvironment(SDKConstants.endpoint.production);
 
         const response = await new Promise((resolve, reject) => {
             ctrl.execute(() => {

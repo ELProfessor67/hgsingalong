@@ -52,13 +52,16 @@ const page = () => {
     <div className='zeeshan'>
       {/* Navbar */}
       <Navbar2 />
-      <section className="slice py-2 pt-lg-4 pb-lg-5 bg-dark">
+      <section className="slice !bg-background-4 !pt-[8rem] !pb-8 relative">
+      <div className='absolute bottom-1 left-1 z-0'>
+            <img src='/images/bottom-box-shape.png'/>
+        </div>
     {/* Container */}
     <div className="container">
       <div className="row row-grid align-items-center">
         <div className="col-lg-12">
           {/* Heading */}
-          <h1 className="h1 text-white text-center text-lg-left my-4">
+          <h1 className="h1 text-white text-center text-lg-left my-4 text-gradient">
             We Are <strong>Listening</strong>
           </h1>
           {/* Text */}
@@ -85,19 +88,25 @@ const page = () => {
         xmlSpace="preserve"
         className=""
       >
-        <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
+        <polygon points="2560 0 2560 100 0 100" fill='#1a1d22'/>
       </svg>
     </div>
   </section>
   <section
-    className="slice slice-lg !bg-background-1"
+    className="slice slice-lg !bg-background-3 relative"
     id="sct-form-contact"
-    style={{ paddingTop: "3rem" }}
+    style={{ padding: "8rem 0rem 8rem 0rem" }}
   >
+    <div className='absolute top-1 left-1 z-0'>
+            <img src='/images/left-plus.png'/>
+        </div>
+        <div className='absolute bottom-0 right-0 z-0'>
+            <img src='/images/bottom-line.png'/>
+        </div>
     <div className="container position-relative zindex-100">
       <div className="row justify-content-center">
-        <div className="col-lg-6">
-          <h3>Contact us</h3>
+        <div className="col-lg-6 !text-white/80">
+          <h3 className='!text-white'>Contact us</h3>
           <p>Kindly fill out this form and send your message.</p>
           <p className="lh-190">
             If there's anything we can help you with, just let us know. <br />
@@ -181,7 +190,7 @@ const page = () => {
     </div>
   </section>
   <footer className="position-relative" id="footer-main">
-        <div className="footer pt-lg-7 footer-dark bg-dark">
+        <div className="footer pt-lg-7 footer-dark !bg-background-4">
           {/* SVG shape */}
           <div className="shape-container shape-line shape-position-top shape-orientation-inverse">
             <svg
@@ -197,7 +206,7 @@ const page = () => {
               xmlSpace="preserve"
               className=" fill-section-secondary"
             >
-              <polygon points="2560 0 2560 100 0 100" fill='#e6fffd'/>
+              <polygon points="2560 0 2560 100 0 100" fill='#1f2226'/>
             </svg>
           </div>
           {/* Footer */}

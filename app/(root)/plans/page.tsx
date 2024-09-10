@@ -27,13 +27,13 @@ const page = () => {
     }
 
     return (
-        <section className="text-gray-400 body-font p-10 zeeshan pb-14 bg-background-1">
+        <section className="text-gray-400 body-font p-10 zeeshan pb-14 bg-background-3">
             <div className="flex items-center justify-center flex-col mb-12">
 
-                <h2 className=" mt-4">
+                <h2 className=" mt-4 text-gradient">
                     Why HG Sing Along
                 </h2>
-                <div className="mt-2">
+                <div className="mt-2 text-white/80">
                     <p className="leading-7 max-w-[35rem] text-center font-[300] text-[1.125rem]">
                         We offer competitive pricing, great features, and better value.
                         See our difference!
@@ -103,20 +103,20 @@ const page = () => {
                                     plan != "starter" &&
                                     <div className="w-[18rem]">
                                         <div
-                                            className="card card-awesome card-pricing text-center px-3 hover-scale-110"
+                                            className="card card-awesome-black card-pricing text-center px-3 hover-scale-110 bottom-0"
 
                                         >
                                             <div className="card-header py-5 border-0 delimiter-bottom">
-                                                <div className="h1 text-center mb-0">
-                                                    $<span className="price font-weight-bolder">{planslist[plan].price}</span>
+                                                <div className="h1 text-center mb-0 !text-white">
+                                                    $<span className="price font-weight-bolder ">{planslist[plan].price}</span>
                                                 </div>
-                                                <span className="h6 text-muted">{planslist[plan].title}</span>
+                                                <span className="h6 !text-white">{planslist[plan].title}</span>
                                             </div>
                                             <div className="card-body !p-1">
-                                                <span className="h6 text-muted" style={{ fontWeight: "bold" }}>
+                                                <span className="h6 !text-white" style={{ fontWeight: "bold" }}>
                                                     Features:
                                                 </span>
-                                                <ul className="list-unstyled text-sm mb-4">
+                                                <ul className="list-unstyled text-sm mb-4 !text-white">
                                                     {
                                                         planslist[plan].features.map(text => (
                                                             <li className="py-2 !text-left">
@@ -169,7 +169,7 @@ const page = () => {
 
                 </div>
                 <div className="mt-5 text-center">
-                    <p className="mb-2">
+                    <p className="mb-2 text-white/80">
                         All plans include active-subscription free support. Need more?
                     </p>
                     <a

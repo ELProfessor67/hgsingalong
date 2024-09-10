@@ -22,13 +22,17 @@ const config = {
        
         "backgroud-primary": "#ffffff",
         "backgroud-secondary": "#000000",
-        "foregroud-primary": "#71C9CE",
+        // "foregroud-primary": "#71C9CE",
+        // "foregroud-primary": "#66fcf1",
+        "foregroud-primary": "#A79369",
         "foregroud-secondary": "#ffffff",
         "para-color": "#242424",
         "heading-color":"#564f4f",
         background: {
           1: "#e6fffd",
-          2: "#c9dae0"
+          2: "#c9dae0",
+          3: "#1f2226",
+          4: "#1a1d22"
         },
 
 

@@ -81,21 +81,27 @@ const page = ({searchParams}:props) => {
   }
 
   return (
-    <section className="bg-background-1 py-8 antialiased  md:py-16 min-h-[100vh] flex items-center justify-center">
+    <section className="bg-background-3 py-8 antialiased  md:py-16 min-h-[100vh] flex items-center justify-center">
+      <div className='absolute bottom-1 left-1 z-0'>
+            <img src='/images/bottom-box-shape.png' />
+          </div>
+          <div className='absolute bottom-0 right-0 z-0'>
+            <img src='/images/bottom-line.png' />
+          </div>
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+          <h2 className="text-xl font-semibold text-gradient sm:text-2xl">
             Payment
           </h2>
           <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
             <form
               onSubmit={handlePayment}
-              className="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm  sm:p-6 lg:max-w-xl lg:p-8"
+              className="w-full rounded-lg bg-background-4 p-4 shadow-sm  sm:p-6 lg:max-w-xl lg:p-8"
             >
               <div className="col-span-2 sm:col-span-1 mb-5">
                 <label
                   htmlFor="card-number-input"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  className="mb-2 block text-sm font-medium text-white "
                 >
                   {" "}
                   Card number*{" "}
@@ -103,7 +109,7 @@ const page = ({searchParams}:props) => {
                 <input
                   type="text"
                   id="card-number-input"
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-white focus:border-primary-500 focus:ring-primary-500"
                   placeholder="xxxx-xxxx-xxxx-xxxx"
                   pattern="^4[0-9]{12}(?:[0-9]{3})?$"
                   required
@@ -117,7 +123,7 @@ const page = ({searchParams}:props) => {
                 <div>
                   <label
                     htmlFor="card-expiration-input"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 block text-sm font-medium text-white dark:text-white"
                   >
                     Card expiration*{" "}
                   </label>
@@ -144,7 +150,7 @@ const page = ({searchParams}:props) => {
                       datepicker-format="mm/yy"
                       id="card-expiration-input"
                       type="text"
-                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-white focus:border-blue-500 focus:ring-blue-500  dark:focus:border-blue-500 dark:focus:ring-blue-500"
                       placeholder="12/23"
                       required
                       value={expire}
@@ -155,13 +161,13 @@ const page = ({searchParams}:props) => {
                 <div>
                   <label
                     htmlFor="cvv-input"
-                    className="mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"
+                    className="mb-2 flex items-center gap-1 text-sm font-medium text-white dark:text-white"
                   >
                     CVV*
                     <button
                       data-tooltip-target="cvv-desc"
                       data-tooltip-trigger="hover"
-                      className="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
+                      className="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-white"
                     >
                       <svg
                         className="h-4 w-4"
@@ -190,7 +196,7 @@ const page = ({searchParams}:props) => {
                     type="number"
                     id="cvv-input"
                     aria-describedby="helper-text-explanation"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary0"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-white focus:border-primary-500 focus:ring-primary0"
                     placeholder="•••"
                     required
                     value={cvv}
@@ -206,13 +212,13 @@ const page = ({searchParams}:props) => {
               </button>
             </form>
             <div className="mt-6 grow sm:mt-8 lg:mt-0">
-              <div className="space-y-4 rounded-lg border border-gray-100 bg-gray-50 p-6 w-full md:w-[24rem]">
+              <div className="space-y-4 rounded-lg  bg-background-4 p-6 w-full md:w-[24rem]">
                 <div className="space-y-2">
                   <dl className="flex items-center justify-between gap-4">
                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                       Plan price
                     </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
+                    <dd className="text-base font-medium text-white dark:text-white">
                       ${planslist[searchParams.plan]?.price + planslist[searchParams.plan]?.saving}.00
                     </dd>
                   </dl>
@@ -226,10 +232,10 @@ const page = ({searchParams}:props) => {
                   </dl>
                 </div>
                 <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                  <dt className="text-base font-bold text-gray-900 dark:text-white">
+                  <dt className="text-base font-bold text-white dark:text-white">
                     Total
                   </dt>
-                  <dd className="text-base font-bold text-gray-900 dark:text-white">
+                  <dd className="text-base font-bold text-white dark:text-white">
                     ${planslist[searchParams.plan]?.price}.00
                   </dd>
                 </dl>
