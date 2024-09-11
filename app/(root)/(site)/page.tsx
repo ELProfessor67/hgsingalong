@@ -407,7 +407,7 @@ const page = () => {
           </div>
           <div className='content absolute inset-0 overflow-hidden flex items-center justify-center'>
             <div className='contentBox active' id='content0'>
-              <h1 className='!text-white !text-xl md:!text-4xl !font-[700] '></h1>
+              <h1 className='!text-white !text-xl md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
             </div>
             <div className='contentBox' id='content1'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
@@ -501,6 +501,9 @@ const page = () => {
         <div className='absolute bottom-1 left-1 z-0'>
           <img src='/images/bottom-box-shape.png' />
         </div>
+        <div className='absolute right-1 top-1 z-0'>
+          <img src='/images/left-plus.png' />
+        </div>
 
         <div className="container position-relative zindex-100">
           <div className="flex flex-wrap items-center justify-center gap-7">
@@ -515,10 +518,10 @@ const page = () => {
                         style={{ border: "1px solid" }}
                       >
                         <div className="card-header py-5 border-0 delimiter-bottom">
-                          <div className="h1  text-center mb-0 text-white">
-                            $<span className="price font-weight-bolder text-white">{planslist[plan].price}</span>
+                          <div className="h1  text-center mb-0 text-gradient">
+                            $<span className="price font-weight-bolder text-gradient">{planslist[plan].price}</span>
                           </div>
-                          <span className="h6 text-white">{planslist[plan].title}</span>
+                          <span className="h6 text-gradient">{planslist[plan].title}</span>
                         </div>
                         <div className="card-body !p-1 !text-white">
                           <span className="h6 !text-white" style={{ fontWeight: "bold" }}>
@@ -549,7 +552,7 @@ const page = () => {
                               (
                                 <a
                                   onClick={(e) => handlePurchanse(e, plan)}
-                                  className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                  className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                 >
                                   Purchase Now
                                 </a>
@@ -568,10 +571,10 @@ const page = () => {
 
                       >
                         <div className="card-header py-5 border-0 delimiter-bottom">
-                          <div className="h1 text-center mb-0 !text-white">
+                          <div className="h1 text-center mb-0 text-gradient">
                             $<span className="price font-weight-bolder ">{planslist[plan].price}</span>
                           </div>
-                          <span className="h6  !text-white">{planslist[plan].title}</span>
+                          <span className="h6  text-gradient">{planslist[plan].title}</span>
                         </div>
                         <div className="card-body !p-1">
                           <span className="h6 !text-white" style={{ fontWeight: "bold" }}>
@@ -593,7 +596,7 @@ const page = () => {
                               (
                                 <a
 
-                                  className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                  className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                 >
                                   Free Plan
                                 </a>
@@ -602,7 +605,7 @@ const page = () => {
                                 (
                                   <a
 
-                                    className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                    className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
                                     Current Plan
                                   </a>
@@ -612,7 +615,7 @@ const page = () => {
                                 (
                                   <a
                                     onClick={(e) => handlePurchanse(e, plan)}
-                                    className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
+                                    className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
                                     Purchase Now
                                   </a>
@@ -905,7 +908,10 @@ const page = () => {
                 </div>
               </div>
             </div>
+            <img src='/images/stamps.jpg' className=' w-[10rem] h-[10rem] mx-auto'/>
           </div>
+
+
           <div className="mt-2 text-center">
             <a
               href="/meetings"

@@ -123,7 +123,7 @@ const MeetingTypeList = () => {
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/beforemeet/${id}`;
 
   return (
-    <section className="grid grid-cols-1 gap-5 md:grid-cols-2">
+    <section className="flex items-center justify-center gap-5 flex-wrap">
       <HomeCard
         img="/icons/add-meeting.svg"
         title="New Meeting"
