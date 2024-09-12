@@ -111,7 +111,7 @@ const {user} = useUser()
       
       <div className="flex items-center justify-center flex-col mb-12">
 
-          <h2 className=" mt-4 main-header !text-4xl !text-white">
+          <h2 className=" mt-4 !text-4xl !text-white">
             Dashboard
           </h2>
         

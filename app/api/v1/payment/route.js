@@ -60,7 +60,7 @@ export const POST = async (req) => {
                             console.log('Description: ' + response.getTransactionResponse().getMessages().getMessage()[0].getDescription());
                             resolve({ success: true, transactionId: response.getTransactionResponse().getTransId() });
                         } else {
-                            console.log('Failed Transaction.');
+                            console.log('Failed Transaction.',1);
                             if(response.getTransactionResponse().getErrors() != null) {
                                 console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
                                 console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
@@ -68,7 +68,7 @@ export const POST = async (req) => {
                             }
                         }
                     } else {
-                        console.log('Failed Transaction.');
+                        console.log('Failed Transaction.',2);
                         if (response.getTransactionResponse() && response.getTransactionResponse().getErrors() !== null) {
                             console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
                             console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
@@ -85,7 +85,7 @@ export const POST = async (req) => {
             });
         });
 
-
+        console.log(response,'res')
         if(response.success){
             const subscription_expire = new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))
             const user = await subscriptionModel.findOne({user_id})
@@ -99,13 +99,14 @@ export const POST = async (req) => {
                await subscriptionModel.create({user_id,subscription:plan,subscribe_start: new Date(Date.now()), subscription_expire})
             }
 
-            return NextResponse.json(response);
+            return NextResponse.json(response,{status: 200});
         }else{
             return NextResponse.json(response,{status: 501});
         }
 
-        return NextResponse.json(response);
+   
     } catch (error) {
-        return NextResponse.json({ success: false, message: error.message }, { status: 500 });
+        console.log(error)
+        return NextResponse.json({ success: false, message: error.error || error.message }, { status: 500 });
     }
 };

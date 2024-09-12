@@ -109,9 +109,9 @@ const page = ({searchParams}:props) => {
                 <input
                   type="text"
                   id="card-number-input"
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-white focus:border-primary-500 focus:ring-primary-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-black focus:border-primary-500 focus:ring-primary-500"
                   placeholder="xxxx-xxxx-xxxx-xxxx"
-                  pattern="^4[0-9]{12}(?:[0-9]{3})?$"
+                  // pattern="^4[0-9]{12}(?:[0-9]{3})?$"
                   required
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value)}
@@ -150,7 +150,7 @@ const page = ({searchParams}:props) => {
                       datepicker-format="mm/yy"
                       id="card-expiration-input"
                       type="text"
-                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-white focus:border-blue-500 focus:ring-blue-500  dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-black focus:border-blue-500 focus:ring-blue-500  dark:focus:border-blue-500 dark:focus:ring-blue-500"
                       placeholder="12/23"
                       required
                       value={expire}
@@ -174,6 +174,8 @@ const page = ({searchParams}:props) => {
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
+
+
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -196,7 +198,7 @@ const page = ({searchParams}:props) => {
                     type="number"
                     id="cvv-input"
                     aria-describedby="helper-text-explanation"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-white focus:border-primary-500 focus:ring-primary0"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-black focus:border-primary-500 focus:ring-primary0"
                     placeholder="•••"
                     required
                     value={cvv}

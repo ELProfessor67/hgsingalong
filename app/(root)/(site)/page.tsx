@@ -908,7 +908,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <img src='/images/stamps.jpg' className=' w-[10rem] h-[10rem] mx-auto'/>
+           
           </div>
 
 
@@ -1046,6 +1046,9 @@ const page = () => {
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
                 <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
+              <img src='/images/stamps.jpg' className=' w-[2rem] h-[2rem] mx-auto'/>
               </a>
 
 
