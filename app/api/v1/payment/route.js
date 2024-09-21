@@ -1,6 +1,20 @@
 import { NextResponse } from 'next/server';
 import { APIContracts, APIControllers,Constants as SDKConstants } from 'authorizenet';
 import subscriptionModel from '@/lib/userModel';
+import sendEmail from '@/lib/sendEmail'
+import { getAuth, clerkClient } from '@clerk/nextjs/server'
+
+
+function formatDate(date) {
+    let year = date.getFullYear();
+    let month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    let day = String(date.getDate()).padStart(2, '0');
+    
+    let hours = String(date.getHours()).padStart(2, '0');
+    let minutes = String(date.getMinutes()).padStart(2, '0');
+    
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
 
 export const POST = async (req) => {
     try {
@@ -10,7 +24,9 @@ export const POST = async (req) => {
             transactionKey: process.env.AUTHORIZENET_TRANSACTION_KEY, // Your Authorize.Net Transaction Key
         };
 
-        
+
+
+      
 
         const merchantAuthenticationType = new APIContracts.MerchantAuthenticationType();
         merchantAuthenticationType.setName(constants.apiLoginKey);
@@ -45,6 +61,7 @@ export const POST = async (req) => {
 
         const ctrl = new APIControllers.CreateTransactionController(createRequest.getJSON());
         ctrl.setEnvironment(SDKConstants.endpoint.production);
+     
 
         const response = await new Promise((resolve, reject) => {
             ctrl.execute(() => {
@@ -53,7 +70,7 @@ export const POST = async (req) => {
 
                 if (response !== null) {
                     if (response.getMessages().getResultCode() === APIContracts.MessageTypeEnum.OK) {
-                        if (response.getTransactionResponse() && response.getTransactionResponse().getMessages() !== null) {
+                        if (response.getTransactionResponse() && response.getTransactionResponse().getMessages()) {
                             console.log('Successfully created transaction with Transaction ID: ' + response.getTransactionResponse().getTransId());
                             console.log('Response Code: ' + response.getTransactionResponse().getResponseCode());
                             console.log('Message Code: ' + response.getTransactionResponse().getMessages().getMessage()[0].getCode());
@@ -69,7 +86,7 @@ export const POST = async (req) => {
                         }
                     } else {
                         console.log('Failed Transaction.',2);
-                        if (response.getTransactionResponse() && response.getTransactionResponse().getErrors() !== null) {
+                        if (response.getTransactionResponse() && response.getTransactionResponse().getErrors()) {
                             console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
                             console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
                             reject({ success: false, error: response.getTransactionResponse().getErrors().getError()[0].getErrorText() });
@@ -85,10 +102,12 @@ export const POST = async (req) => {
             });
         });
 
-        console.log(response,'res')
+     
         if(response.success){
             const subscription_expire = new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))
             const user = await subscriptionModel.findOne({user_id})
+          
+            
            
             if(user){
               user.subscription = plan;
@@ -98,6 +117,40 @@ export const POST = async (req) => {
             }else{
                await subscriptionModel.create({user_id,subscription:plan,subscribe_start: new Date(Date.now()), subscription_expire})
             }
+
+            try {
+                const userdetail = await clerkClient.users.getUser(user_id)
+
+                const message = `Subscription Successful! 🎉
+                    Hello ${userdetail?.firstName || ''} ${userdetail?.lastName || ''},
+    
+                    Thank you for subscribing to HG Sing-Along! 🎤✨ Your journey to unlimited karaoke fun begins now. We’re thrilled to have you as part of our singing community!
+    
+                    Here are the details of your subscription:
+                    Plan: ${plan}
+                    Start Date: ${formatDate(new Date())}
+                    Expiry Date: ${formatDate(subscription_expire)}
+                    You now have full access to:
+    
+                    Unlimited song library 🎶
+                    Exclusive karaoke features 🎤
+                    Special events and competitions 🎉
+                    We hope you enjoy your experience with HG Sing-Along. If you have any questions or need support, feel free to contact us anytime!
+    
+                    Keep singing and having fun!
+    
+                    Best regards,
+                    The HG Sing-Along Team
+    
+                    `
+    
+                await sendEmail(userdetail?.primaryEmailAddress?.emailAddress,'Subscription Successful! 🎉',message); 
+            } catch (error) {
+                console.log('error during send mail : ', error.message)
+            }
+
+
+       
 
             return NextResponse.json(response,{status: 200});
         }else{

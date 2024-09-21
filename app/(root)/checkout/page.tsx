@@ -22,6 +22,19 @@ const page = ({searchParams}:props) => {
   const {toast} = useToast();
   const router = useRouter()
 
+
+  const handleCardNumberChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    const formattedCardNumber = input.replace(/(\d{4})(?=\d)/g, '$1-'); // Add hyphen every 4 digits
+    setCardNumber(formattedCardNumber.slice(0, 19)); // Limit to 19 characters (16 digits + 3 hyphens)
+  };
+
+  const handleExpiryDateChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    const formattedExpiryDate = input.replace(/(\d{2})(?=\d)/, '$1/'); // Add slash after 2 digits
+    setExpire(formattedExpiryDate.slice(0, 5)); // Limit to 5 characters (MM/YY)
+  };
+
  
 
   const handlePayment = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,7 +63,7 @@ const page = ({searchParams}:props) => {
       }
 
       const res = await axios.post(`/api/v1/payment`,{
-        cardNumber: cardNumber,
+        cardNumber: cardNumber.replaceAll('-',''),
         expiryMonth: expire.split('/')[0],
         expiryYear: expire.split('/')[1],
         cvv: cvv,
@@ -114,7 +127,7 @@ const page = ({searchParams}:props) => {
                   // pattern="^4[0-9]{12}(?:[0-9]{3})?$"
                   required
                   value={cardNumber}
-                  onChange={(e) => setCardNumber(e.target.value)}
+                  onChange={handleCardNumberChange}
                 />
               </div>
               <div className="mb-6 grid grid-cols-2 gap-4">
@@ -154,7 +167,7 @@ const page = ({searchParams}:props) => {
                       placeholder="12/23"
                       required
                       value={expire}
-                      onChange={(e) => setExpire(e.target.value)}
+                      onChange={handleExpiryDateChange}
                     />
                   </div>
                 </div>
@@ -202,7 +215,8 @@ const page = ({searchParams}:props) => {
                     placeholder="•••"
                     required
                     value={cvv}
-                  onChange={(e) => setCvv(e.target.value)}
+                    onChange={(e) => setCvv(e.target.value)}
+                    maxLength={3}
                   />
                 </div>
               </div>

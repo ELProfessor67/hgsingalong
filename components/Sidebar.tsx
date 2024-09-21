@@ -62,7 +62,7 @@ const Sidebar = () => {
       
      
 
-      <div className='py-2 border-b border-t border-white/40 flex items-center justify-between !bg-green-100 rounded-md'>
+      <div className='py-2 border-b border-t border-white/40 flex items-center justify-between !bg-[url("/images/green.jpg")] rounded-md'>
         <div className='flex flex-col'>
           <h4 className='text-black/90 text-2xl mb-1'>{subscription}</h4>
           <p className='text-black/70 text-xs'> No Cost ${planslist[subscription].price}/month</p>
