@@ -43,8 +43,8 @@ const Navbar2 = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon">
-            <GiHamburgerMenu size={30} color='black' />
+          <span className="navbar-toggler-icon text-foregroud-primary">
+            <GiHamburgerMenu size={30} />
           </span>
         </button>
         {/* Collapse */}

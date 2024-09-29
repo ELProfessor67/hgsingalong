@@ -46,6 +46,7 @@ const MeetingTypeList = () => {
   const [id, setId] = useState('')
   const [meetings, setMeetings] = useState<undefined | IRoomDetails>(undefined);
   const [description,setDesc] = useState('')
+  const [status,setStatus] = useState('private')
   const [meetingState, setMeetingState] = useState<
     'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
   >(undefined);
@@ -99,10 +100,10 @@ const MeetingTypeList = () => {
       let res;
       if(meetingState === 'isScheduleMeeting'){
 
-        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:initialValues.dateTime});
+        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:initialValues.dateTime,status});
       }else{
 
-         res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time});
+         res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,status:'private'});
       }
       setId(id)
       if(res?.data.success){
@@ -185,6 +186,18 @@ const MeetingTypeList = () => {
               className="w-full rounded bg-dark-3 p-2 focus:outline-none"
             />
           </div>
+          
+
+          <div className="flex w-full flex-col gap-2.5">
+            <label className="text-base font-normal leading-[22.4px] text-black/90">
+              Meeting Type
+            </label>
+            <select onChange={(e) => setStatus(e.target.value)} value={status} className='py-2 px-3 outline-none border rounded-md border-gray-400 bg-transparent'>
+              <option value={'private'}>Private</option>
+              <option value={'public'}>Public</option>
+            </select>
+          </div>
+
         </MeetingModal>
       ) : (
         <MeetingModal

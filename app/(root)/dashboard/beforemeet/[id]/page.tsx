@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState } from 'react'
-import { MdOutlineContentCopy } from "react-icons/md";
+import { MdOutlineContentCopy, MdPersonAdd,MdClose } from "react-icons/md";
 import { IoMdShareAlt } from "react-icons/io";
 import { useUser } from '@clerk/nextjs';
 import { useToast } from '@/components/ui/use-toast';
@@ -25,6 +25,8 @@ import {
 import axios from 'axios';
 import { subscriptionContext } from '@/providers/SubscriptionProvider';
 import { planslist } from '@/constants';
+import InvitePeaople from '@/components/InvitePeaople';
+import { Input } from '@/components/ui/input';
 
 interface TypeParams {
     id: string
@@ -38,8 +40,12 @@ const page = ({ params }: PropsType) => {
     const { user } = useUser()
     const { toast } = useToast();
     const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [emails,setEmails] = useState<string[]>([])
+    const [email,setEmail] = useState<string>('')
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${params?.id}`
-    const {subscription} = useContext(subscriptionContext)
+
+    const { subscription } = useContext(subscriptionContext)
     const router = useRouter()
     const handleCopy = async () => {
         try {
@@ -75,12 +81,44 @@ const page = ({ params }: PropsType) => {
 
         }
     }
+
+    const handleAddEmail = () => {
+        if(!email) return
+        setEmails(prev => [...prev,email]);
+        setEmail('');
+    }
+
+    const handleRemoveEmail = (index:number) => {
+  
+        setEmails(prev => prev.filter((_,i) => index != i));
+
+    }
+
+    const handleSendInvitation = async () => {
+        if(emails.length == 0) return;
+        console.log('calll')
+        try {
+            const res = await axios.post('/api/v1/send-invitation',{emails,room_id: params?.id,user_id: user?.id});
+       
+            setIsOpen(false);
+            toast({
+                title: "Send Successfully"
+            });
+            setEmails([]);
+        } catch (error) {
+            console.log((error as Error).message)
+        }
+    }
     return (
         <section className='flex items-center justify-center p-5 flex-col'>
             <div className='w-[30rem] min-h-[20rem] relative shadow-md rounded-md border border-gray-100 flex p-4 flex-col gap-5 bg-white'>
                 <h2 className='text-black/90 text-3xl text-center'>Your Meeting Ready</h2>
                 <p className='text-black/60 text-center'>Or share this meeting link with others that you want in the meeting</p>
-                <button className='bg-foregroud-primary px-4 py-2 rounded-md text-white flex items-center gap-3 w-[9rem] hover:scale-105' onClick={() => setOpen(true)}>Share Now <IoMdShareAlt /></button>
+                <div className='flex items-center justify-between'>
+
+                    <button className='bg-foregroud-primary px-4 py-2 rounded-md text-white flex items-center gap-3 w-[9rem] hover:scale-105' onClick={() => setOpen(true)}>Share Now <IoMdShareAlt /></button>
+                    <button className='bg-foregroud-primary px-4 py-2 rounded-md text-white flex items-center gap-3  hover:scale-105' onClick={() => setIsOpen(true)}>Invite <IoMdShareAlt /></button>
+                </div>
                 <div className='py-4 px-2 w-full rounded-md border border-gray-100 flex items-center bg-gray-200' aria-readonly>
                     <input value={url} className='text-gray-500 outline-none border-none bg-transparent w-full' />
                     <button className='text-gray-800 bg-none outline-none border-none' onClick={handleCopy}><MdOutlineContentCopy /></button>
@@ -144,6 +182,29 @@ const page = ({ params }: PropsType) => {
                     </LinkedinShareButton>
                 </div>
             </MeetingModal>
+
+
+            <InvitePeaople isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                <h1 className='text-3xl text-black text-center font-semibold'>Invite Participants</h1>
+                <div className='flex items-center gap-4'>
+                    <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter Email' className='outline-none border border-gray-300 rounded-md py-3 px-3 flex-1 placeholder:font-normal' />
+                    <button className='bg-foregroud-primary px-4 py-2 rounded-md text-white flex items-center gap-3  hover:scale-105' onClick={handleAddEmail}><MdPersonAdd size={25} /></button>
+
+
+                </div>
+                <div className='flex flex-wrap items-center justify-center gap-4 mt-8'>
+                    {
+                        emails.map((email,index) => (
+                            <div className='bg-gray-200 rounded-md py-3 pl-4 pr-2 text-black relative'>
+                                {email}
+                            <button className='text-black  pl-2'><MdClose size={20} onClick={() => handleRemoveEmail(index)}/></button>
+                        </div>
+                        ))
+                    }
+                   
+                </div>
+                <button className='bg-foregroud-primary mx-auto px-4 py-3 rounded-md text-white flex items-center gap-3  hover:scale-105' onClick={handleSendInvitation}>Invite Now<IoMdShareAlt /></button>
+            </InvitePeaople>
 
         </section>
     )

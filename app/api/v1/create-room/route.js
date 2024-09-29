@@ -5,12 +5,13 @@ import roomModel from '@/lib/roomModel';
 export const POST = async (req) => {
    try {
     await connectDB()
-    const {user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime} = await req.json();
-    console.log(user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime)
-    await roomModel.create({user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime});
+    const {user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime,status} = await req.json();
+    console.log(status)
+  
+    const room = await roomModel.create({user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime,status});
 
 
-    return NextResponse.json({success: true,message: "Room Create Successfully"},{status: 201});
+    return NextResponse.json({success: true,message: "Room Create Successfully",room},{status: 201});
    } catch (error) {
     return NextResponse.json({success: false,message: error.message},{status: 500})
    }

@@ -36,6 +36,8 @@ import { planslist } from '@/constants';
 import { subscriptionContext } from '@/providers/SubscriptionProvider';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
+import axios from 'axios';
+import { IRoomDetails } from '@/components/CallList';
 
 interface CustomStyle extends React.CSSProperties {
   '--i'?: number;
@@ -51,11 +53,29 @@ const page = () => {
 
   const [ratingValue, setRatingValue] = useState(0);
   const [open, setOpen] = useState(false)
+  const [publicRooms, setPublicRooms] = useState<IRoomDetails[]>([])
   const [openshare, setOpenShare] = useState(false)
   const router = useRouter()
   const { toast } = useToast()
   const { subscription } = useContext(subscriptionContext)
   const { user } = useUser()
+  
+
+
+  async function getPublicRooms() {
+    try {
+      const res = await axios.get(`/api/v1/get-rooms?public=true`);
+      
+      setPublicRooms(res.data?.rooms);
+    } catch (error) {
+      console.log(error)
+
+    }
+  }
+
+  useEffect(() => {
+    getPublicRooms();
+  }, [])
 
 
   const handleRating = (rate: number) => {
@@ -166,7 +186,7 @@ const page = () => {
                 Now you can set up your secured and high-quality virtual meetings on Sing Along.
               </p>
               <div className="text-center text-md-left mt-5">
-                <a href="http://localhost/hgsingalong/dashboard" className="btn btn-primary !border-none !bg-foregroud-primary btn-icon">
+                <a href="/dashboard" className="btn btn-primary !border-none !bg-foregroud-primary btn-icon">
                   <span className="btn-inner--text">Get started</span>
                   <span className="btn-inner--icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
                     height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -334,7 +354,7 @@ const page = () => {
           <div className='services -left-[50%] relative w-full h-full flex justify-center items-center cursor-pointer '>
             <div className='secvice-box flex' style={getStyle(1)} data-target="content1">
               <div className='flex items-start'>
-                <h2 className='absolute -left-[180%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Crystal Clear Sound</h2>
+                <h2 className='absolute -left-[180%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white hidden md:block'>Crystal Clear Sound</h2>
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
                   <span className='text-white text-3xl'><FaVolumeDown /></span>
@@ -350,7 +370,7 @@ const page = () => {
                   <span className='text-white text-3xl'><FaHandPointUp /></span>
 
                 </div>
-                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Easy To Use</h2>
+                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white hidden md:block'>Easy To Use</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(3)} data-target="content3">
@@ -362,7 +382,7 @@ const page = () => {
                   <span className='text-white text-3xl'><FaHandshake /></span>
 
                 </div>
-                <h2 className='absolute !-right-[260%] md:!-right-[210%] -top-[5%] md:top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Collabrative</h2>
+                <h2 className='absolute !-right-[260%] md:!-right-[210%] -top-[5%] md:top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white hidden md:block'>Collabrative</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(4)} data-target="content4">
@@ -374,13 +394,13 @@ const page = () => {
                   <span className='text-white text-3xl'><IoDiamondOutline /></span>
 
                 </div>
-                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Features Rich</h2>
+                <h2 className='absolute !-right-[300%] md:!-right-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white hidden md:block'>Features Rich</h2>
               </div>
             </div>
             <div className='secvice-box flex' style={getStyle(5)} data-target="content5">
               <div className='flex items-start relative'>
 
-                <h2 className='absolute -left-[110%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white'>Extandable</h2>
+                <h2 className='absolute -left-[110%] md:-left-[210%] top-[25%] w-[10rem] !text-[10px] md:!text-xl !font-[700] !text-white hidden md:block'>Extandable</h2>
 
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
@@ -392,7 +412,7 @@ const page = () => {
             <div className='secvice-box flex' style={getStyle(6)} data-target="content6">
               <div className='flex items-start relative'>
 
-                <h2 className='absolute -left-[80%] md:-left-[130%] top-[25%] w-[10rem] md:!text-xl !font-[700] !text-[10px] !text-white'>Secure</h2>
+                <h2 className='absolute -left-[80%] md:-left-[130%] top-[25%] w-[10rem] md:!text-xl !font-[700] !text-[10px] !text-white hidden md:block'>Secure</h2>
                 <div className=' md:w-20 md:h-20 h-14 w-14 flex items-center justify-center rounded-full bg-foregroud-primary' >
 
                   <span className='text-white text-3xl'><FaLock /></span>
@@ -405,37 +425,37 @@ const page = () => {
 
 
           </div>
-          <div className='content absolute inset-0 overflow-hidden flex items-center justify-center'>
+          <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
             <div className='contentBox active' id='content0'>
-              <h1 className='!text-white !text-xl md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
+              <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
             </div>
             <div className='contentBox' id='content1'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content2'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content3'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content4'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content5'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
             <div className='contentBox' id='content6'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
                 No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
               </p>
             </div>
@@ -482,7 +502,7 @@ const page = () => {
                   </h4>
                   {/* Play button */}
                   <a
-                    href="/membership"
+                    href="/plans"
                     className="btn btn-primary !bg-foregroud-primary !border-none btn-icon mt-4 !font-500"
                   >
                     Start now
@@ -806,11 +826,11 @@ const page = () => {
         </div>
         <div className='container'>
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 my-2'>
-            <div className=' w-full md:w-[50%] p-4'>
-              <div className="h1 !text-3xl !text-white/90">
+            <div className=' w-full md:w-[50%] p-4 md:hidden block'>
+              <div className="h1 !text-3xl !text-white/90 text-center">
                 Create an account to host a meeting
               </div>
-              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
                 Sign up with your Name, Email Address, and Password. Then, check your email to verify your account. Once your account is verified, you will have full access to Trivoh workspace.
               </p>
               <div className="text-center text-md-left mt-3">
@@ -826,6 +846,31 @@ const page = () => {
 
               </div>
             </div>
+
+
+            <div className=' w-full md:w-[50%] p-4 md:block hidden'>
+              <div className="h1 !text-3xl !text-white/90 ">
+                Create an account to host a meeting
+              </div>
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 ">
+                Sign up with your Name, Email Address, and Password. Then, check your email to verify your account. Once your account is verified, you will have full access to Trivoh workspace.
+              </p>
+              <div className="text-center text-md-left mt-3">
+                <a href="/sign-in" className="btn btn-primary !border-none !bg-foregroud-primary btn-icon !font-[500]">
+                  <span className="btn-inner--text">Create Account</span>
+                  <span className="btn-inner--icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                    height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    className="feather feather-chevron-right">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+                </a>
+
+              </div>
+            </div>
+
+
+
             <div className='w-full md:w-[50%] p-4 !flex !items-center' style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
                 <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM-1.jpeg"
@@ -834,16 +879,34 @@ const page = () => {
             </div>
           </div>
 
-          <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 my-2'>
+          <div className='w-full relative flex flex-wrap flex-col-reverse md:flex-row items-center gap-0 my-2'>
 
-            <div className='w-full md:w-[50%] p-4 !flex !items-center' style={{ display: 'flex', justifyContent: 'flex-start' }}>
+            <div className='w-full md:w-[50%] p-4 !flex !items-center md:!hidden'  style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
                 <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
-                  className="img-fluid mw-md-120" />
+                  className="img-fluid mw-md-120 " />
               </figure>
             </div>
 
-            <div className=' w-full md:w-[50%] p-4'>
+            
+            <div className='w-full md:w-[50%] p-4 md:!flex !items-center !hidden'  style={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <figure className=" w-[70%] md:w-[60%] flex items-center">
+                <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
+                  className="img-fluid mw-md-120 " />
+              </figure>
+            </div>
+
+            <div className=' w-full md:w-[50%] p-4 md:hidden block'>
+              <div className="h1 !text-3xl !text-white/90 text-center">
+                Set up your meeting
+              </div>
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
+                To set-up and schedule a meeting, click on Host a meeting which will give you full control of the meeting you have created. Once your meeting is created, share the link with your participants or add it to your calendar.
+              </p>
+
+            </div>
+
+            <div className=' w-full md:w-[50%] p-4 hidden md:block'>
               <div className="h1 !text-3xl !text-white/90">
                 Set up your meeting
               </div>
@@ -855,7 +918,20 @@ const page = () => {
           </div>
 
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 mt-2'>
-            <div className=' w-full md:w-[50%] p-4'>
+            <div className=' w-full md:w-[50%] p-4 block md:hidden'>
+              <div className="h1 !text-3xl !text-white/90 text-center">
+                Enter your meeting room
+              </div>
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
+                It is not compulsory to have an account to join a meeting on Trivoh, Join any meetings using the meeting link or ID, Simply insert your name, set up your microphones and videos, and you are good to go.
+
+
+              </p>
+
+            </div>
+
+
+            <div className=' w-full md:w-[50%] p-4 hidden md:block'>
               <div className="h1 !text-3xl !text-white/90">
                 Enter your meeting room
               </div>
@@ -903,7 +979,12 @@ const page = () => {
               <div className="card shadow-none " style={{ border: "1px solid" }}>
                 <div className="p-3 d-flex">
                   <p style={{ fontWeight: "bold", marginBottom: 0 }}>
-                    No Public meeting is scheduled for this week!
+                    {
+                      publicRooms.length == 0 ?
+                      "No Public meeting is scheduled for this week!":
+                      `${publicRooms.length} public room is available now`
+                    }
+                   
                   </p>
                 </div>
               </div>
@@ -963,14 +1044,15 @@ const page = () => {
             <div className="row">
               <div className="col-lg-4 mb-5 mb-lg-0">
                 {/* Theme's logo */}
-                <a href="">
+                <a href="" className='flex justify-center md:justify-start translate-y-5 -translate-x-5'>
                   <img
                     alt="Image placeholder"
-                    src="/images/apple-icon-60x60.png"
+                    src="/images/stamps.jpg"
                     id="footer-logo"
+                    className='w-[8rem]'
                   />
                 </a>
-                <p className="mt-4 text-sm opacity-8 pr-lg-4 !text-white !font-[400] !text-[18px] !leading-[27px]">
+                <p className="text-sm opacity-8 pr-lg-4 !text-white !font-[400] !text-[18px] !leading-[27px]">
                   Sing Along is a video conferencing/meeting platform offered by
                   Hallelujah Gospel Globally. We offer high-quality, secured, and
                   hassle-free meetings.{" "}
@@ -1048,7 +1130,7 @@ const page = () => {
                 <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
-              <img src='/images/stamps.jpg' className=' w-[2rem] h-[2rem] mx-auto'/>
+              <img src='/images/stamps.jpg' className=' w-[4rem] h-[4rem] mx-auto'/>
               </a>
 
 

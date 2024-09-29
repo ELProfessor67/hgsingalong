@@ -81,6 +81,7 @@ export interface IRoomDetails {
   user_plan: string;
   __v: number;
   _id: string;
+  status?: 'private' | 'public';
 }
 
 
@@ -174,7 +175,8 @@ const page = ({ params }: PropsType) => {
             }}
             interfaceConfigOverwrite={{
               SHOW_JITSI_WATERMARK: false,
-              SHOW_WATERMARK_FOR_GUESTS: false
+              SHOW_WATERMARK_FOR_GUESTS: false,
+              
             }}
             // containerStyle={{ flex: 1, display: "flex" } as any} 
             onApiReady={(externalApi) => {
@@ -193,7 +195,7 @@ const page = ({ params }: PropsType) => {
               externalApi.addListener('participantJoined', (ParticipantDetails) => {
 
                 console.log(ParticipantDetails, "ParticipantDetails")
-                if (roomdetailsRef.current?.user_id == user?.id) {
+                if (roomdetailsRef.current?.user_id == user?.id && roomdetailsRef.current?.status == 'private') {
                   // const confirm = window.confirm(`${ParticipantDetails?.formattedDisplayName?.split(' ')[0]} user want to join meet.`);
                   const handleReject = () => {
                     externalApi.executeCommand('kickParticipant', ParticipantDetails.id)
@@ -211,8 +213,16 @@ const page = ({ params }: PropsType) => {
 
             configOverwrite={{
               // Set your custom invite URL here
-              inviteUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${params.id}`
+              inviteUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${params.id}`,
+              startWithAudioMuted: roomdetailsRef.current?.status == 'public', // Start with audio muted
+              startWithVideoMuted: roomdetailsRef.current?.status == 'public', // Start with video muted
             }}
+
+
+   
+
+            
+            
 
           />
 
@@ -232,7 +242,7 @@ const page = ({ params }: PropsType) => {
               <img src='/images/left-plus.png' />
             </div>
             <div className="w-full max-w-md bg-background-3 rounded-lg shadow-md p-8">
-              <h1 className="text-2xl font-bold mb-2 text-foregroud-primary">Join as Guest</h1>
+              <h1 className="text-2xl font-bold mb-2 text-foregroud-primary blicking">Join as Guest</h1>
               <p className="text-white/80 mb-6">Enter your name to join as a guest.</p>
               <form onSubmit={handleGuestJoin} className="space-y-4">
                 <div>
@@ -251,7 +261,7 @@ const page = ({ params }: PropsType) => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-foregroud-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="w-full blicking bg-foregroud-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                   Join as Guest
                 </button>

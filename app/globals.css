@@ -327,3 +327,20 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny {
   background: linear-gradient(to right,
       #833ab4, #fd1d1d, #fcb045);
 }
+
+
+
+
+.blicking {
+  animation: blink 1s infinite;
+}
+
+/* Keyframes for blink effect */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
