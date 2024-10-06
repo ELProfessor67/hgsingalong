@@ -47,11 +47,12 @@ const MeetingTypeList = () => {
   const [meetings, setMeetings] = useState<undefined | IRoomDetails>(undefined);
   const [description,setDesc] = useState('')
   const [status,setStatus] = useState('private')
+  const [image,setImage] = useState<string | null>(null);
   const [meetingState, setMeetingState] = useState<
     'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
   >(undefined);
   const [values, setValues] = useState(initialValues);
-  const {subscription} = useContext(subscriptionContext)
+  const {subscription} = useContext(subscriptionContext);
 
 
  
@@ -70,7 +71,22 @@ const MeetingTypeList = () => {
 
   useEffect(() => {
     getRooms()
-  },[user])
+  },[user]);
+
+
+
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if(file){
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+   
+  };
 
 
   const createMeeting = async () => {
@@ -100,7 +116,7 @@ const MeetingTypeList = () => {
       let res;
       if(meetingState === 'isScheduleMeeting'){
 
-        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:initialValues.dateTime,status});
+        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:initialValues.dateTime,status,image});
       }else{
 
          res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,status:'private'});
@@ -196,6 +212,19 @@ const MeetingTypeList = () => {
               <option value={'private'}>Private</option>
               <option value={'public'}>Public</option>
             </select>
+          </div>
+
+          <div className="flex flex-col gap-2.5">
+            <label className="text-base font-normal leading-[22.4px] text-black/90">
+              Cover Image
+            </label>
+            <Input
+              placeholder="Cover Image"
+              type='file'
+              accept='image/*'
+              onChange={handleImageChange}
+              className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+            />
           </div>
 
         </MeetingModal>

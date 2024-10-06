@@ -18,6 +18,12 @@ export interface IRoomDetails {
   user_plan: string;
   __v: number;
   _id: string;
+  image?: {url: string,public_id: string}
+  description?: string;
+  user?: {
+    avatar: string,
+    name: string
+  }
 }
 
 function formatDateTimeWithDayAndAmPm(date: Date): string {

@@ -59,13 +59,13 @@ const page = () => {
   const { toast } = useToast()
   const { subscription } = useContext(subscriptionContext)
   const { user } = useUser()
-  
+
 
 
   async function getPublicRooms() {
     try {
       const res = await axios.get(`/api/v1/get-rooms?public=true`);
-      
+
       setPublicRooms(res.data?.rooms);
     } catch (error) {
       console.log(error)
@@ -431,32 +431,32 @@ const page = () => {
             </div>
             <div className='contentBox' id='content1'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
               </p>
             </div>
             <div className='contentBox' id='content2'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
               </p>
             </div>
             <div className='contentBox' id='content3'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
               </p>
             </div>
             <div className='contentBox' id='content4'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
               </p>
             </div>
             <div className='contentBox' id='content5'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
               </p>
             </div>
             <div className='contentBox' id='content6'>
               <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                No need to download or install any software. Just start a meeting and share the link with your guests or participants to join using any web browser, or our easy-to-use app.
+                Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
               </p>
             </div>
           </div>
@@ -491,27 +491,28 @@ const page = () => {
           </svg>
         </div>
         {/* Container */}
-        <div className="container position-relative zindex-100">
-          <div className="col">
-            <div className="row justify-content-center">
-              <div className="col-md-10 text-center">
-                <div className="mt-4 mb-6">
-                  <h2 className="h1 text-white !font-[700] text-gradient">Are you ready to grow faster?</h2>
-                  <h4 className="text-white mt-3 !font-[500]">
-                    Activate any plan and get started
-                  </h4>
-                  {/* Play button */}
-                  <a
-                    href="/plans"
-                    className="btn btn-primary !bg-foregroud-primary !border-none btn-icon mt-4 !font-500"
-                  >
-                    Start now
-                  </a>
-                </div>
-              </div>
-            </div>
+
+        <div className='flex items-center flex-col md:flex-row px-6'>
+          <div className="!p-8 w-full md:w-[50%] flex flex-col items-center justify-center md:block">
+            <h2 className="h1 text-white !font-[700] text-gradient">Are you ready to grow faster?</h2>
+            <h4 className="text-white mt-3 !font-[500]">
+              Activate any plan and get started
+            </h4>
+
+            <a
+              href="/plans"
+              className="btn btn-primary !bg-foregroud-primary !border-none btn-icon mt-4 !font-500"
+            >
+              Start now
+            </a>
+          </div>
+
+
+          <div className='flex items-center justify-center w-full md:w-[50%]'>
+            <img src='/images/stamps.jpg' />
           </div>
         </div>
+    
       </section>
 
 
@@ -650,129 +651,6 @@ const page = () => {
                 </>
               ))
             }
-            {/* <div className="w-[18rem]">
-              <div
-                className="card card-awesome card-pricing text-center px-3 hover-scale-110"
-
-              >
-                <div className="card-header py-5 border-0 delimiter-bottom">
-                  <div className="h1 text-center mb-0">
-                    $<span className="price font-weight-bolder">15</span>
-                  </div>
-                  <span className="h6 text-muted">Weekly</span>
-                </div>
-                <div className="card-body">
-                  <span className="h6 text-muted" style={{ fontWeight: "bold" }}>
-                    Features:
-                  </span>
-                  <ul className="list-unstyled text-sm mb-4">
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Recordings
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Unlimited Users
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> No Time Limit
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Screensharing
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> 3 days trial
-                    </li>
-                  </ul>
-                  <a
-                    href="/get-membership/weekly"
-                    className="btn btn-sm btn- !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
-                  >
-                    Purchase now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="w-[18rem]">
-              <div
-                className="card card-pricing card-awesome-black text-center px-3 border-0 hover-scale-110 scale-110"
-                style={{ border: "1px solid" }}
-              >
-                <div className="card-header py-5 border-0 delimiter-bottom">
-                  <div className="h1  text-center mb-0 text-white">
-                    $<span className="price font-weight-bolder text-white">50</span>
-                  </div>
-                  <span className="h6 text-white">Monthly</span>
-                </div>
-                <div className="card-body !text-white">
-                  <span className="h6 !text-white" style={{ fontWeight: "bold" }}>
-                    Features:
-                  </span>
-                  <ul className="list-unstyled  text-sm opacity-8 mb-4">
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Recordings
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Unlimited Users
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> No Time Limit
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Screensharing
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> 7 days trial
-                    </li>
-                  </ul>
-                  <a
-                    href="/get-membership/monthly"
-                    className="btn btn-sm btn-white hover-translate-y-n3 hover-shadow-lg mb-3"
-                  >
-                    Purchase now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="w-[18rem]">
-              <div
-                className="card card-pricing card-awesome text-center px-3 hover-scale-110"
-
-              >
-                <div className="card-header py-5 border-0 delimiter-bottom">
-                  <div className="h1 text-center mb-0">
-                    $<span className="price font-weight-bolder">500</span>
-                  </div>
-                  <span className="h6 text-muted">Yearly</span>
-                </div>
-                <div className="card-body">
-                  <span className="h6 text-muted" style={{ fontWeight: "bold" }}>
-                    Features:
-                  </span>
-                  <ul className="list-unstyled text-sm mb-4">
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Recordings
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Unlimited Users
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> No Time Limit
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> Screensharing
-                    </li>
-                    <li className="py-2">
-                      <i className="fa fa-check" /> 15 days trial
-                    </li>
-                  </ul>
-                  <a
-                    href="/get-membership/yearly"
-                    className="btn btn-sm !bg-[#1ebbc4] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
-                  >
-                    Purchase now
-                  </a>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="mt-5 text-center">
             <p className="mb-2 !text-white">
@@ -881,15 +759,15 @@ const page = () => {
 
           <div className='w-full relative flex flex-wrap flex-col-reverse md:flex-row items-center gap-0 my-2'>
 
-            <div className='w-full md:w-[50%] p-4 !flex !items-center md:!hidden'  style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className='w-full md:w-[50%] p-4 !flex !items-center md:!hidden' style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
                 <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
                   className="img-fluid mw-md-120 " />
               </figure>
             </div>
 
-            
-            <div className='w-full md:w-[50%] p-4 md:!flex !items-center !hidden'  style={{ display: 'flex', justifyContent: 'flex-start' }}>
+
+            <div className='w-full md:w-[50%] p-4 md:!flex !items-center !hidden' style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
                 <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
                   className="img-fluid mw-md-120 " />
@@ -981,15 +859,15 @@ const page = () => {
                   <p style={{ fontWeight: "bold", marginBottom: 0 }}>
                     {
                       publicRooms.length == 0 ?
-                      "No Public meeting is scheduled for this week!":
-                      `${publicRooms.length} public room is available now`
+                        "No Public meeting is scheduled for this week!" :
+                        `${publicRooms.length} public room is available now`
                     }
-                   
+
                   </p>
                 </div>
               </div>
             </div>
-           
+
           </div>
 
 
@@ -1130,7 +1008,7 @@ const page = () => {
                 <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
-              <img src='/images/stamps.jpg' className=' w-[4rem] h-[4rem] mx-auto'/>
+                <img src='/images/stamps.jpg' className=' w-[4rem] h-[4rem] mx-auto' />
               </a>
 
 

@@ -148,14 +148,7 @@ const {user} = useUser()
         </div>
       </div>
 
-      {/* <div className='w-[40rem] mx-auto'>
-        <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Room Durations</h3>
-        <Bar data={barData} />
-      </div>
-      <div className='w-[40rem] mx-auto'>
-        <h3 className='text-black/90 text-center my-5 text-3xl mt-10 main-header'>Rooms Created Over Time</h3>
-        <Line data={lineData} />
-      </div> */}
+      
     </section>
   )
 }
