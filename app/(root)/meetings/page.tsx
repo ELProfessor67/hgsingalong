@@ -65,8 +65,8 @@ const page = () => {
       <div className='flex items-center justify-center flex-wrap gap-5'>
         {
           publicRooms && publicRooms.map((room: IRoomDetails, idex: number) => (
-            <div className="w-[21rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className='flex items-center justify-center'>
+            <div className="w-[21rem] min-h-[29rem] bg-background-3 rounded-lg shadow text-white relative z-50">
+              <div className='flex items-center justify-center p-1'>
 
               <img className="rounded-t-lg w-full h-[17rem] object-cover" src={room.image?.url || fallbackImage} alt="" />
               </div>
@@ -79,8 +79,8 @@ const page = () => {
                   </Avatar>
                   <h2 className='font-medium'>{room.user?.name}</h2>
                 </div>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 my-2 mx-1">{room.description}</p>
-                <Link href={`/meeting/${room._id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <p className="mb-3 font-normal text-gray-50 my-2 mx-1">{room.description?.slice(0,100)}</p>
+                <Link href={`/meeting/${room._id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
                   JOIN NOW
                   <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
