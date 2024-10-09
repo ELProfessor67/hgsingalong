@@ -922,12 +922,11 @@ const page = () => {
             <div className="row">
               <div className="col-lg-4 mb-5 mb-lg-0">
                 {/* Theme's logo */}
-                <a href="" className='flex justify-center md:justify-start translate-y-5 -translate-x-5'>
+                <a href="">
                   <img
                     alt="Image placeholder"
-                    src="/images/stamps.jpg"
+                    src="/images/apple-icon-60x60.png"
                     id="footer-logo"
-                    className='w-[8rem]'
                   />
                 </a>
                 <p className="text-sm opacity-8 pr-lg-4 !text-white !font-[400] !text-[18px] !leading-[27px]">
