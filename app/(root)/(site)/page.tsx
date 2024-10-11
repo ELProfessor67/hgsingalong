@@ -7,8 +7,8 @@ import { FaHandshake } from "react-icons/fa";
 import { IoDiamondOutline } from "react-icons/io5";
 import { FaVolumeDown } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa";
-import { ConeIcon } from 'lucide-react';
+import { FaPlus,FaHeadphones } from "react-icons/fa";
+import { ConeIcon, icons } from 'lucide-react';
 import MeetingModal from '@/components/MeetingModal';
 import { Textarea } from '@/components/ui/textarea';
 import { Rating } from 'react-simple-star-rating'
@@ -49,6 +49,33 @@ function getStyle(num: number) {
   };
   return customStyle
 }
+
+const products = [
+  {
+    title: "ANYTIME",
+    subtitle: "VIDEO CHAT",
+    icon: <img src='/images/streams.png' className='w-[80%] h-[5rem] object-contain'/>,
+    gradient: "from-yellow-400 to-orange-500",
+  },
+  {
+    title: "WATCH",
+    subtitle: "VIDEOS",
+    icon: <img src='/images/pipeline.png' className='w-[80%] h-[5rem] object-contain'/>,
+    gradient: "from-green-400 to-blue-500",
+  },
+  {
+    title: "START",
+    subtitle: "MEETUPS",
+    icon: <img src='/images/radio.png' className='w-[80%] h-[5rem] object-contain'/>,
+    gradient: "from-purple-400 to-pink-500",
+  },
+  {
+    title: "OFFICIAL",
+    subtitle: "MAIN PLATFORM",
+    icon: <img src='/images/main-logo.png' className='w-[80%] h-[5rem] object-contain'/>,
+    gradient: "from-orange-400 to-yellow-500",
+  },
+]
 const page = () => {
 
   const [ratingValue, setRatingValue] = useState(0);
@@ -512,7 +539,7 @@ const page = () => {
             <img src='/images/stamps.jpg' />
           </div>
         </div>
-    
+
       </section>
 
 
@@ -831,6 +858,30 @@ const page = () => {
       </section>
 
 
+      <div className="bg-background-3 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-extrabold text-center mb-8 !bg-gradient-to-r !from-orange-400 !to-pink-600 !text-transparent !bg-clip-text">
+            Discover Our Products
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {products.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-gradient-to-br ${item.gradient} rounded-lg p-4 text-white shadow-lg`}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  {item.icon}
+                  <FaHeadphones className="h-6 w-6 opacity-50" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                <p className="text-sm opacity-75 text-white">{item.subtitle}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+
       <section className="slice slice-sm !bg-background-3 relative">
         <div className='absolute bottom-1 left-1 z-0'>
           <img src='/images/bottom-box-shape.png' />
@@ -896,6 +947,8 @@ const page = () => {
           </div>
         </div>
       </section>
+
+     
       {/* End Main Content */}
       <footer className="position-relative" id="footer-main">
         <div className="footer pt-lg-7 footer-dark !bg-background-4">
@@ -917,6 +970,8 @@ const page = () => {
               <polygon points="2560 0 2560 100 0 100" fill='#1f2226' />
             </svg>
           </div>
+
+
           {/* Footer */}
           <div className="container pt-4">
             <div className="row">
