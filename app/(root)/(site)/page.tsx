@@ -38,6 +38,7 @@ import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import axios from 'axios';
 import { IRoomDetails } from '@/components/CallList';
+import useIsMobile from '@/hooks/useInMobile';
 
 interface CustomStyle extends React.CSSProperties {
   '--i'?: number;
@@ -86,6 +87,7 @@ const page = () => {
   const { toast } = useToast()
   const { subscription } = useContext(subscriptionContext)
   const { user } = useUser()
+  const isMobile = useIsMobile();
 
 
 
@@ -452,7 +454,10 @@ const page = () => {
 
 
           </div>
-          <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
+          {
+            isMobile ?
+            (
+              <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
             <div className='contentBox active' id='content0'>
               <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
             </div>
@@ -487,6 +492,46 @@ const page = () => {
               </p>
             </div>
           </div>
+            ):
+            (
+              <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
+            <div className='contentBox active' id='content0'>
+              <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
+            </div>
+            <div className='contentBox' id='content1'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                I am in PC Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
+              </p>
+            </div>
+            <div className='contentBox' id='content2'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
+              </p>
+            </div>
+            <div className='contentBox' id='content3'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
+              </p>
+            </div>
+            <div className='contentBox' id='content4'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
+              </p>
+            </div>
+            <div className='contentBox' id='content5'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
+              </p>
+            </div>
+            <div className='contentBox' id='content6'>
+              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
+              </p>
+            </div>
+          </div>
+            )
+          }
+          
         </div>
 
 
@@ -536,7 +581,7 @@ const page = () => {
 
 
           <div className='flex items-center justify-center w-full md:w-[50%]'>
-            <img src='/images/stamps.jpg' />
+            <img src='/images/stamps.jpg' className='w-[22rem] hover:scale-110 transition-all cursor-pointer'/>
           </div>
         </div>
 
