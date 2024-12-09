@@ -34,7 +34,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ endTime }) => {
       if (timeLeft <= 0) {
         toast({
           title: 'Meeting has ended.',
-
+          duration: 5000,
         });
         clearInterval(interval);
         return;
@@ -51,17 +51,17 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ endTime }) => {
       } else if (minutesLeft == 1 && secondsLeft == 0) {
         toast({
           title: 'Less than 1 minute left.',
-
+          duration: 5000,
         });
       } else if (minutesLeft == 2 && secondsLeft == 0) {
         toast({
           title: 'Less than 2 minute left.',
-
+          duration: 5000,
         });
       } else if (minutesLeft == 5 && secondsLeft == 0) {
         toast({
           title: 'Less than 5 minute left.',
-
+          duration: 5000,
         });
       }
     }, 1000);
@@ -182,6 +182,7 @@ const page = ({ params }: PropsType) => {
             onApiReady={(externalApi) => {
 
               externalApi.addListener("videoConferenceLeft", () => {
+                
                 console.log(getTryBack(), 'tryback')
                 if (getTryBack()) {
                   tryBackRef.current = false;
