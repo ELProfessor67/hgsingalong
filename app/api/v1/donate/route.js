@@ -18,7 +18,7 @@ function formatDate(date) {
 
 export const POST = async (req) => {
     try {
-        const { cardNumber, expiryMonth, expiryYear, cvv, email, firstName, user_id, amount, plan } = await req.json();
+        const { cardNumber, expiryMonth, expiryYear, cvv, email, firstName,lastName, amount } = await req.json();
         const constants = {
             apiLoginKey: process.env.AUTHORIZENET_API_LOGIN_ID, // Your Authorize.Net API Login ID
             transactionKey: process.env.AUTHORIZENET_TRANSACTION_KEY, // Your Authorize.Net Transaction Key
@@ -104,60 +104,41 @@ export const POST = async (req) => {
 
      
         if(response.success){
-            const subscription_expire = new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))
-            const user = await subscriptionModel.findOne({user_id})
-          
-            
-           
-            if(user){
-              user.subscription = plan;
-              user.subscribe_start = new Date(Date.now());
-              user.subscription_expire = subscription_expire;
-              await user.save();
-            }else{
-               await subscriptionModel.create({user_id,subscription:plan,subscribe_start: new Date(Date.now()), subscription_expire})
-            }
-
             try {
-                const userdetail = await clerkClient.users.getUser(user_id)
+                const message = `Donation Successful! 🎉
 
-                const message = `Subscription Successful! 🎉
-                    Hello ${userdetail?.firstName || ''} ${userdetail?.lastName || ''},
-    
-                    Thank you for subscribing to HG Sing-Along! 🎤✨ Your journey to unlimited karaoke fun begins now. We’re thrilled to have you as part of our singing community!
-    
-                    Here are the details of your subscription:
-                    Plan: ${plan}
-                    Start Date: ${formatDate(new Date())}
-                    Expiry Date: ${formatDate(subscription_expire)}
-                    You now have full access to:
-    
-                    Unlimited song library 🎶
-                    Exclusive karaoke features 🎤
-                    Special events and competitions 🎉
-                    We hope you enjoy your experience with HG Sing-Along. If you have any questions or need support, feel free to contact us anytime!
-    
-                    Keep singing and having fun!
-    
+                    Hello ${firstName || ''} ${lastName || ''},
+
+                    Thank you for your generous donation to HG Sing-Along! 🎤✨ Your support helps us continue to bring joy and create unforgettable karaoke experiences. We’re grateful to have you as part of our community!
+
+                    Here are the details of your donation:
+
+                    Amount Donated: ${amount}
+                    Date of Donation: ${formatDate(new Date())}
+                    Your contribution enables us to:
+
+                    Expand our song library 🎶
+                    Enhance karaoke features 🎤
+                    Host special events and competitions 🎉
+                    We truly appreciate your support, and we hope you continue enjoying the fun and excitement that HG Sing-Along offers. If you have any questions or need assistance, feel free to contact us anytime!
+
+                    Keep singing and spreading joy!
+
                     Best regards,
                     The HG Sing-Along Team
     
                     `
     
-                await sendEmail(userdetail?.primaryEmailAddress?.emailAddress,'Subscription Successful! 🎉',message); 
+                await sendEmail(email,'Subscription Successful! 🎉',message); 
             } catch (error) {
                 console.log('error during send mail : ', error.message)
             }
-
-
-       
 
             return NextResponse.json(response,{status: 200});
         }else{
             return NextResponse.json(response,{status: 501});
         }
 
-   
     } catch (error) {
         console.log(error)
         return NextResponse.json({ success: false, message: error.error || error.message }, { status: 500 });
