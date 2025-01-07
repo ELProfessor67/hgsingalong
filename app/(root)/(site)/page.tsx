@@ -83,6 +83,7 @@ const page = () => {
   const [open, setOpen] = useState(false)
   const [publicRooms, setPublicRooms] = useState<IRoomDetails[]>([])
   const [openshare, setOpenShare] = useState(false)
+  const [freePlanModel, setFreePlanModel] = useState(false);
   const router = useRouter()
   const { toast } = useToast()
   const { subscription } = useContext(subscriptionContext)
@@ -697,10 +698,11 @@ const page = () => {
                               subscription === plan ?
                                 (
                                   <a
-
+                                    onClick={plan == "free" ? () => setFreePlanModel(true): () => {}}
                                     className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
-                                    Current Plan
+                                    {plan == "free" ? "Continue With Free": "Current Plan"}
+                                    
                                   </a>
 
                                 )
@@ -1162,6 +1164,23 @@ const page = () => {
       {/* Core JS  */}
       {/* Quick JS */}
       {/* Feather Icons */}
+
+
+
+      <MeetingModal
+        isOpen={freePlanModel}
+        onClose={() => setFreePlanModel(false) }
+        title="Your Opinion matter to us!"
+        className="text-center"
+        buttonText="Donate Now"
+        handleClick={() => { router.push('/donate'); setOpen(false) }}
+      >
+        <p className='text-center'>How with free plan and donate now.</p>
+        
+      </MeetingModal>
+
+
+
 
 
       <MeetingModal
