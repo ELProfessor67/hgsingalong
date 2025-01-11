@@ -17,6 +17,7 @@ interface MeetingModalProps {
   image?: string;
   buttonClassName?: string;
   buttonIcon?: string;
+  isButtonShow?: boolean;
 }
 
 const MeetingModal = ({
@@ -31,6 +32,7 @@ const MeetingModal = ({
   image,
   buttonClassName,
   buttonIcon,
+  isButtonShow = true
 }: MeetingModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -45,23 +47,27 @@ const MeetingModal = ({
             {title}
           </h1>
           {children}
-          <Button
-            className={
-              "bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0"
-            }
-            onClick={handleClick}
-          >
-            {buttonIcon && (
-              <Image
-                src={buttonIcon}
-                alt="button icon"
-                width={13}
-                height={13}
-              />
-            )}{" "}
-            &nbsp;
-            {buttonText || "Schedule Meeting"}
-          </Button>
+          {
+            isButtonShow &&
+            <Button
+              className={
+                "bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+              }
+              onClick={handleClick}
+            >
+              {buttonIcon && (
+                <Image
+                  src={buttonIcon}
+                  alt="button icon"
+                  width={13}
+                  height={13}
+                />
+              )}{" "}
+              &nbsp;
+              {buttonText || "Schedule Meeting"}
+            </Button>
+          }
+
         </div>
       </DialogContent>
     </Dialog>

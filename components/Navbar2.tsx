@@ -96,6 +96,12 @@ const Navbar2 = () => {
                 >
                   Pricing
                 </a>
+                <a
+                  href="/feature"
+                  className="dropdown-item !text-black/80 hover:!text-foregroud-primary !font-medium hover:!font-normal !text-[18px]"
+                >
+                  Features
+                </a>
                 {/* <div class="dropdown-divider"></div> */}
               </div>
             </li>

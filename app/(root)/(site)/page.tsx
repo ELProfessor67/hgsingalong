@@ -39,6 +39,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { IRoomDetails } from '@/components/CallList';
 import useIsMobile from '@/hooks/useInMobile';
+import TwoButtonModel from '@/components/TwoButtonModel';
 
 interface CustomStyle extends React.CSSProperties {
   '--i'?: number;
@@ -1167,17 +1168,18 @@ const page = () => {
 
 
 
-      <MeetingModal
+      <TwoButtonModel
         isOpen={freePlanModel}
         onClose={() => setFreePlanModel(false) }
-        title="Your Opinion matter to us!"
+        title="Donate Now"
         className="text-center"
         buttonText="Donate Now"
         handleClick={() => { router.push('/donate'); setOpen(false) }}
+        handleSecondClick={() => { router.push('/dashboard'); setOpen(false) }}
       >
         <p className='text-center'>How with free plan and donate now.</p>
         
-      </MeetingModal>
+      </TwoButtonModel>
 
 
 
