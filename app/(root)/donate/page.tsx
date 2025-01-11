@@ -50,14 +50,32 @@ const page = ({ searchParams }: props) => {
   const [address, setAddress] = useState('');
   const [cvv, setCvv] = useState('');
   const [loading, setLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<string | undefined>(undefined);
+  const [paymentMethod, setPaymentMethod] = useState<'cash'|'zelle'|'venmo' | undefined>(undefined);
   const { user } = useUser();
   const { toast } = useToast();
   const router = useRouter();
 
-  const heading = useMemo(() => methodsContent[paymentMethod]?.heading,[paymentMethod]);
-  const content = useMemo(() => methodsContent[paymentMethod]?.content,[paymentMethod]);
-  const id = useMemo(() => methodsContent[paymentMethod]?.id,[paymentMethod]);
+  // const heading = useMemo(() => methodsContent[paymentMethod]?.heading,[paymentMethod]);
+  // const content = useMemo(() => methodsContent[paymentMethod]?.content,[paymentMethod]);
+  // const id = useMemo(() => methodsContent[paymentMethod]?.id,[paymentMethod]);
+
+  const heading = useMemo(() => {
+    if (!paymentMethod) return "";
+    return methodsContent[paymentMethod]?.heading || "";
+  }, [paymentMethod]);
+
+
+  const content = useMemo(() => {
+    if (!paymentMethod) return "";
+    return methodsContent[paymentMethod]?.content || "";
+  }, [paymentMethod]);
+
+  const id = useMemo(() => {
+    if (!paymentMethod) return "";
+    return methodsContent[paymentMethod]?.id || "";
+  }, [paymentMethod]);
+  
+
 
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -356,7 +374,7 @@ const page = ({ searchParams }: props) => {
                   <span className='text-white bg-background-4 block p-1'>OR</span>
                 </div>
 
-                <Select value={paymentMethod} onValueChange={(value) => setPaymentMethod(value)}>
+                <Select value={paymentMethod} onValueChange={(value) => setPaymentMethod(value as 'cash'|'zelle'|'venmo')}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Pay Using Another Method" />
                   </SelectTrigger>
@@ -366,7 +384,6 @@ const page = ({ searchParams }: props) => {
                     <SelectItem value="venmo">Venmo</SelectItem>
                   </SelectContent>
                 </Select>
-
 
               </form>
 
