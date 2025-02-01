@@ -3,6 +3,7 @@ import { APIContracts, APIControllers,Constants as SDKConstants } from 'authoriz
 import subscriptionModel from '@/lib/userModel';
 import sendEmail from '@/lib/sendEmail'
 import { getAuth, clerkClient } from '@clerk/nextjs/server'
+import { generateInvoice } from '../../../../lib/generateInvoice';
 
 
 function formatDate(date) {
@@ -120,31 +121,8 @@ export const POST = async (req) => {
 
             try {
                 const userdetail = await clerkClient.users.getUser(user_id)
-
-                const message = `Subscription Successful! 🎉
-                    Hello ${userdetail?.firstName || ''} ${userdetail?.lastName || ''},
-    
-                    Thank you for subscribing to HG Sing-Along! 🎤✨ Your journey to unlimited karaoke fun begins now. We’re thrilled to have you as part of our singing community!
-    
-                    Here are the details of your subscription:
-                    Plan: ${plan}
-                    Start Date: ${formatDate(new Date())}
-                    Expiry Date: ${formatDate(subscription_expire)}
-                    You now have full access to:
-    
-                    Unlimited song library 🎶
-                    Exclusive karaoke features 🎤
-                    Special events and competitions 🎉
-                    We hope you enjoy your experience with HG Sing-Along. If you have any questions or need support, feel free to contact us anytime!
-    
-                    Keep singing and having fun!
-    
-                    Best regards,
-                    The HG Sing-Along Team
-    
-                    `
-    
-                await sendEmail(userdetail?.primaryEmailAddress?.emailAddress,'Subscription Successful! 🎉',message); 
+                const invoice = generateInvoice(formatDate(new Date()),amount,formatDate(subscription_expire),`${userdetail?.firstName || ''} ${userdetail?.lastName || ''}`,userdetail?.primaryEmailAddress?.emailAddress)
+                await sendEmail(userdetail?.primaryEmailAddress?.emailAddress,'Subscription Successful! 🎉','',invoice); 
             } catch (error) {
                 console.log('error during send mail : ', error.message)
             }

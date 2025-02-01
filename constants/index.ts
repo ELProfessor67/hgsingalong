@@ -15,12 +15,17 @@ export const sidebarLinks = [
   {
     Icon: 2,
     route: '/dashboard/upcoming',
-    label: 'Upcoming',
+    label: 'Scheduled',
   },
   {
     Icon: 3,
     route: '/dashboard/previous',
     label: 'Previous',
+  },
+  {
+    Icon: 3,
+    route: '/dashboard/recordings',
+    label: 'Recordings',
   },
   // {
   //   imgURL: '/Icons/Video.svg',

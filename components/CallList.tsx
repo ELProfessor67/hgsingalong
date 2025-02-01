@@ -24,6 +24,7 @@ export interface IRoomDetails {
     avatar: string,
     name: string
   }
+  scheduleTime?: string;
 }
 
 function formatDateTimeWithDayAndAmPm(date: Date): string {
@@ -68,25 +69,14 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   }, [])
   return (
     <div className='flex items-center justify-center flex-wrap gap-5'>
-      {
-        meetings && meetings.map((room: IRoomDetails,idex: number) => (
-          <div className='w-[25rem] !min-h-[13rem] !shadow-md gradient-insta flex flex-col gap-2 rounded-md p-4 !bg-white border border-gray-100'>
-            <h3 className="text-white text-xl">Id: {room?.room_id}</h3>
-            <p className="text-white/90 text-lg">Start Time: {formatDateTimeWithDayAndAmPm(new Date(room.start_time))}</p>
-            <p className="text-white/90 text-lg">End Time: {formatDateTimeWithDayAndAmPm(new Date(room.end_time))}</p>
-            <p className="text-white/90 text-lg">Date: {formatDate(new Date(room.start_time))}</p>
-            <p className="text-white/90 text-lg">Day: {getDayName(new Date(room.start_time))}</p>
-          </div>
-        ))
-      }
+      
 
 
-  {
-        meetings.length == 0 && 
+  
         <div className='flex items-center justify-center h-[60vh]'>
-          <h2 className='text-white/90 text-4xl'>No Previous meetings</h2>
+          <h2 className='text-white/90 text-4xl'>No Recordings</h2>
         </div>
-      }
+
 
     </div>
   );

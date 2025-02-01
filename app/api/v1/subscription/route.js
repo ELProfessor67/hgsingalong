@@ -15,7 +15,7 @@ export const GET = async (req) => {
 
 
     const alls = await subscriptionModel.find();
-    console.log(alls)
+    
    
     const subscription = await subscriptionModel.findOne({
       user_id

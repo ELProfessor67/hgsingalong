@@ -14,6 +14,9 @@ export const POST = async (req) => {
    try {
     await connectDB()
     const {user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime,status,image} = await req.json();
+
+
+    console.log(scheduleTime)
     
     let imageUrl = null;
     let imagePublicId = null;

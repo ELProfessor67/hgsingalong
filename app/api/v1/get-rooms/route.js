@@ -5,17 +5,17 @@ import { clerkClient } from '@clerk/nextjs/server';
 
 
 export const GET = async (req) => {
-    try {
-     await connectDB()
-     const query = new URLSearchParams(req.url.split('?')[1]);
-     const user_id = query.get('user_id');
-     const upcoming = query.get('upcoming');
-     const ispublic = query.get('public');
-     let rooms;
-     if(ispublic){
+  try {
+    await connectDB()
+    const query = new URLSearchParams(req.url.split('?')[1]);
+    const user_id = query.get('user_id');
+    const upcoming = query.get('upcoming');
+    const ispublic = query.get('public');
+    let rooms;
+    if (ispublic) {
       let now = new Date();
       now.setHours(now.getHours() - 2);
-      rooms = await roomModel.find({scheduleTime: { $gt: now } ,status: 'public'})
+      rooms = await roomModel.find({ scheduleTime: { $gt: now }, status: 'public' })
       rooms = JSON.parse(JSON.stringify(rooms));
 
       for (let index = 0; index < rooms.length; index++) {
@@ -26,19 +26,26 @@ export const GET = async (req) => {
           name: `${userdetail.firstName || ''} ${userdetail.lastName || ''}`
         }
       }
-      return NextResponse.json({success: true,rooms},{status: 200});
-     }
-   
-    
-     if(upcoming){
-          rooms = await roomModel.find({user_id,isSchedule: true})
-        }else{
-          rooms = await roomModel.find({user_id,isSchedule: false})
-     }
- 
-     return NextResponse.json({success: true,rooms},{status: 200});
-    } catch (error) {
-     return NextResponse.json({success: false,message: error.message},{status: 500})
+      return NextResponse.json({ success: true, rooms }, { status: 200 });
     }
-     
- }
+
+
+    if (upcoming) {
+      const currentTime = new Date(); // Get the current time
+
+      rooms = await roomModel.find({
+        user_id,
+        isSchedule: true,
+        scheduleTime: { $gt: currentTime }
+      });
+
+    } else {
+      rooms = await roomModel.find({ user_id, isSchedule: false })
+    }
+
+    return NextResponse.json({ success: true, rooms }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ success: false, message: error.message }, { status: 500 })
+  }
+
+}

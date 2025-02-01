@@ -104,24 +104,6 @@ const page = () => {
                 </ol>
                 <p />
                 <p>
-                  <strong>Where will my recording(s) be stored?</strong>
-                </p>
-                <p>
-                  All recordings of your meetings on both the website and the app will
-                  be stored on our server (in your account). You can watch any of them
-                  by clicking on Recordings on the left side of the menu on the
-                  website, or My Meetings on the app.
-                </p>
-                <p>
-                  <strong>How can I control my meeting? </strong>
-                </p>
-                <p>
-                  Once a meeting has started, the moderator or the host will see some
-                  extra controls that are not visible to other users. Use these
-                  controls to manage the security, privacy, audio/video, recordings,
-                  and other things on both the app and the website.
-                </p>
-                <p>
                   <strong>How can users/audience join my meeting?</strong>
                 </p>
                 <p>
@@ -134,10 +116,7 @@ const page = () => {
                   <strong>How can I secure meetings from unknown users?</strong>
                 </p>
                 <p>
-                  After starting a meeting, you will see options in the security tab,
-                  such as Enable Lobby (every new user joining the meeting needs
-                  approval from you to join it) or Set Password (only users with the
-                  password can join).
+                  After starting a meeting, you will see options in the security tab enable it.
                 </p>
                 <p>
                   <strong>How do I enhance the quality of my meetings?</strong>

@@ -344,3 +344,11 @@ button.cl-formButtonPrimary.cl-button.🔒️.cl-internal-ttumny {
     opacity: 0.4;
   }
 }
+
+
+
+.custom-avatar {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+}

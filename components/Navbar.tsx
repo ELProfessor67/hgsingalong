@@ -1,10 +1,12 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import { SignedIn, UserButton } from '@clerk/nextjs';
+import { SignedIn, useUser, UserButton } from '@clerk/clerk-react';
 
 import MobileNav from './MobileNav';
 
 const Navbar = () => {
+  const { user } = useUser();
   return (
     <nav className="flex-between fixed z-50 w-full px-6 py-4 lg:px-10 ">
       <Link href="/" className="flex items-center gap-1 z-20">
@@ -29,9 +31,12 @@ const Navbar = () => {
           </span>
         
       </Link>
-      <div className="flex-between gap-5">
+      <div className="flex-between gap-5 text-white">
         <SignedIn>
-          <UserButton afterSignOutUrl="/sign-in"/>
+          <div className='flex gap-2 text-white items-center justify-center'>
+          <UserButton afterSignOutUrl="/sign-in" appearance={{elements: {userButtonAvatarBox: 'custom-avatar'}}}/>
+          <span style={{ fontSize: '18px', fontWeight: 'normal' }}>{user?.fullName || user?.firstName}</span>
+          </div>
         </SignedIn>
 
         <MobileNav />

@@ -26,6 +26,18 @@ const formatDate = (date: Date): string => {
   return date.toLocaleDateString('en-US', options);
 };
 
+function isToday(dateString: string) {
+  const inputDate = new Date(dateString);
+  const today = new Date();
+
+  return (
+    inputDate.getFullYear() === today.getFullYear() &&
+    inputDate.getMonth() === today.getMonth() &&
+    inputDate.getDate() === today.getDate()
+  );
+}
+
+
 // Function to get day name from date
 const getDayName = (date: Date): string => {
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -68,24 +80,43 @@ const page = () => {
             <div className="w-[21rem] min-h-[29rem] bg-background-3 rounded-lg shadow text-white relative z-50">
               <div className='flex items-center justify-center p-1'>
 
-              <img className="rounded-t-lg w-full h-[17rem] object-cover" src={room.image?.url || fallbackImage} alt="" />
+                <img className="rounded-t-lg w-full h-[17rem] object-cover" src={room.image?.url || fallbackImage} alt="" />
               </div>
-              
+
               <div className="px-3 py-2">
-                <div className='flex items-center gap-3 mb-3'>
-                  <Avatar>
-                  <AvatarImage src={room.user?.avatar} alt={room.user?.name} />
-                  <AvatarFallback>{room.user?.name.slice(0,1).toUpperCase()}</AvatarFallback>
-                  </Avatar>
-                  <h2 className='font-medium'>{room.user?.name}</h2>
+                <div className='flex items-center justify-between'>
+                  <div className='flex items-center gap-3 mb-3'>
+                    <Avatar>
+                      <AvatarImage src={room.user?.avatar} alt={room.user?.name} />
+                      <AvatarFallback>{room.user?.name.slice(0, 1).toUpperCase()}</AvatarFallback>
+                    </Avatar>
+                    <h2 className='font-medium'>{room.user?.name}</h2>
+                  </div>
+
+                  <p className="mb-3 font-light text-gray-50 my-2 mx-1 opacity-40">{new Date(room.scheduleTime as string).toDateString()}</p>
                 </div>
-                <p className="mb-3 font-normal text-gray-50 my-2 mx-1">{room.description?.slice(0,100)}</p>
-                <Link href={`/meeting/${room._id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
-                  JOIN NOW
-                  <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                  </svg>
-                </Link>
+                <p className="mb-3 font-normal text-gray-50 my-2 mx-1">{room.description?.slice(0, 100)}</p>
+                <button disabled={!isToday(room.scheduleTime as string)} className='disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer'>
+                  {
+                    isToday(room.scheduleTime as string) &&
+                    <Link href={`/meeting/${room._id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
+                      JOIN NOW
+                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                      </svg>
+                    </Link>
+                  }
+
+                  {
+                    !isToday(room.scheduleTime as string) &&
+                    <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
+                      JOIN NOW
+                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                      </svg>
+                    </span>
+                  }
+                </button>
               </div>
             </div>
           ))

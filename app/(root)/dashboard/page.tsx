@@ -24,16 +24,16 @@ ChartJS.register(
 function daysLeftUntil(dateString: string): number {
   // Convert input string to Date object
   const targetDate: Date = new Date(dateString);
-  
+
   // Get current date
   const currentDate: Date = new Date();
-  
+
   // Calculate the difference in milliseconds
   const differenceMs: number = targetDate.getTime() - currentDate.getTime();
-  
+
   // Convert milliseconds to days (1 day = 24 hours * 60 minutes * 60 seconds * 1000 milliseconds)
   const daysLeft: number = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
-  
+
   return daysLeft;
 }
 
@@ -46,19 +46,19 @@ interface Room {
 
 const page = () => {
 
-  const {subscription,details} = useContext(subscriptionContext);
+  const { subscription, details } = useContext(subscriptionContext);
   const [totalroom, setTotalRoom] = useState(0);
   const [roomsDuration, setRoomDuration] = useState(null)
   const [roomLabel, setRoomLabels] = useState(null);
-  const [rooms,setRooms] = useState<Room[]>([])
-const {user} = useUser()
-  
+  const [rooms, setRooms] = useState<Room[]>([])
+  const { user } = useUser()
+
   async function getRooms() {
     try {
       const res = await axios.get(`/api/v1/get-rooms?user_id=${user?.id}`);
       setTotalRoom(res.data.rooms?.length)
-      setRoomLabels(res.data.rooms.map((room:Room,index:number) => `Room ${index + 1}`))
-      const roomDurations = res.data.rooms.map((room:Room) => {
+      setRoomLabels(res.data.rooms.map((room: Room, index: number) => `Room ${index + 1}`))
+      const roomDurations = res.data.rooms.map((room: Room) => {
         const startTime = new Date(room.start_time);
         const endTime = new Date(room.end_time);
         return (endTime.getTime() - startTime.getTime()) / (1000 * 60); // Duration in minutes
@@ -72,7 +72,7 @@ const {user} = useUser()
 
   useEffect(() => {
     getRooms()
-  },[])
+  }, [])
 
 
   const barData = {
@@ -102,53 +102,70 @@ const {user} = useUser()
     ],
   };
 
-  
 
-  
+
+
 
   return (
     <section className='flex size-full flex-col gap-10 text-white'>
-      
+
       <div className="flex items-center justify-center flex-col mb-12">
 
-          <h2 className=" mt-4 !text-4xl !text-white font-bold">
-            Dashboard
-          </h2>
-        
-        </div>
+        <h2 className=" mt-4 !text-6xl !text-white font-bold">
+          Dashboard
+        </h2>
+
+      </div>
       <div className='flex items-center justify-center flex-wrap gap-5'>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)"}}>
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#3b5999] flex items-center justify-center' style={{ backgroundImage: "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)" }}>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white text-2xl flex items-center font-bold'>Total Meetings <span className='ml-2 text-white cursor-pointer' title='Total number of meetings will be displayed here that how many meetings you have done.'><FaQuestionCircle/></span></h2>
+            <h2 className='text-white text-2xl flex items-center font-bold'>Total Meetings <span className='ml-2 text-white cursor-pointer' title='Total number of meetings will be displayed here that how many meetings you have done.'><FaQuestionCircle /></span></h2>
             <h1 className='text-white text-7xl'>{totalroom}</h1>
           </div>
         </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%)"}}>
-          <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white text-2xl flex items-center font-bold'>Days Left <span className='ml-2 text-white cursor-pointer' title='How many days are left in ending your plan
-.'><FaQuestionCircle/></span></h2>
-            <h1 className='text-white text-7xl'>{details?.subscription_expire ? daysLeftUntil(details?.subscription_expire) : 0}</h1>
+
+
+        {
+          subscription != 'free' &&
+          <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#55acef] flex items-center justify-center' style={{ backgroundImage: "linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%)" }}>
+            <div className='flex items-center justify-center flex-col gap-4'>
+              <h2 className='text-white text-2xl flex items-center font-bold'>Days Left <span className='ml-2 text-white cursor-pointer' title='How many days are left in ending your plan
+.'><FaQuestionCircle /></span></h2>
+              <h1 className='text-white text-7xl'>{details?.subscription_expire ? daysLeftUntil(details?.subscription_expire) : 0}</h1>
+            </div>
           </div>
-        </div>
-        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center' style={{backgroundImage: "linear-gradient(to top, #cc208e 0%, #6713d2 100%)"}}>
+        }
+        {
+          subscription != 'free' &&
+          <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center' style={{ backgroundImage: "linear-gradient(to top, #cc208e 0%, #6713d2 100%)" }}>
+            <div className='flex items-center justify-center flex-col gap-4'>
+              <h2 className='text-white text-2xl flex items-center font-bold'>Subcription Date <span className='ml-2 text-white cursor-pointer' title='You can see your current plan date here from start to end date.'><FaQuestionCircle /></span></h2>
+              <h1 className='text-white text-xl'>{new Date(details?.subscribe_start).toDateString()} - {new Date(details?.subscription_expire).toDateString()}</h1>
+
+            </div>
+          </div>
+        }
+        
+        <div className='w-[18rem] h-[12rem] shadow-md rounded-md bg-[#ba0100] flex items-center justify-center' style={{ backgroundImage: "linear-gradient(to top, #cc208e 0%, #6713d2 100%)" }}>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white text-2xl flex items-center font-bold'>Current Plan <span className='ml-2 text-white cursor-pointer' title='You can see your current plan from here if you want to upgrade click on the upgrade button below .'><FaQuestionCircle/></span></h2>
+            <h2 className='text-white text-2xl flex items-center font-bold'>Current Plan <span className='ml-2 text-white cursor-pointer' title='You can see your current plan from here if you want to upgrade click on the upgrade button below .'><FaQuestionCircle /></span></h2>
             <h1 className='text-white text-3xl'>{subscription}</h1>
             {
               subscription === 'free' &&
-            <Link href={'/plans'} className='py-2 px-4 rounded-md bg-black/30'>UPGRADE NOW</Link>
+              <Link href={'/plans'} className='py-2 px-4 rounded-md bg-black/30'>UPGRADE NOW</Link>
             }
           </div>
         </div>
+
         <div className='w-[18rem] h-[12rem] shadow-md rounded-md gradient-insta flex items-center justify-center'>
           <div className='flex items-center justify-center flex-col gap-4'>
-            <h2 className='text-white text-2xl flex items-center font-bold '>Meeting Duration <span className='ml-2 text-white cursor-pointer' title='It will shows the meeting duration that how many time of meeting you can do in that plan.'><FaQuestionCircle/></span></h2>
+            <h2 className='text-white text-2xl flex items-center font-bold '>Meeting Duration <span className='ml-2 text-white cursor-pointer' title='It will shows the meeting duration that how many time of meeting you can do in that plan.'><FaQuestionCircle /></span></h2>
             <h1 className='text-white text-7xl'>{planslist[subscription]?.min}<span className='text-xl text-white/70'>min</span></h1>
           </div>
         </div>
       </div>
 
-      
+
     </section>
   )
 }

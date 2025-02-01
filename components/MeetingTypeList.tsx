@@ -53,7 +53,7 @@ const MeetingTypeList = () => {
   >(undefined);
   const [values, setValues] = useState(initialValues);
   const {subscription} = useContext(subscriptionContext);
-
+ 
 
  
 
@@ -116,7 +116,7 @@ const MeetingTypeList = () => {
       let res;
       if(meetingState === 'isScheduleMeeting'){
 
-        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:initialValues.dateTime,status,image});
+        res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,isSchedule:true,description:description,scheduleTime:values.dateTime,status,image});
       }else{
 
          res = await axios.post('/api/v1/create-room',{user_id: user?.id, room_id: id, user_plan: subscription,start_time: new Date().toUTCString(),end_time,status:'private'});
@@ -193,7 +193,7 @@ const MeetingTypeList = () => {
             </label>
             <ReactDatePicker
               selected={values.dateTime}
-              onChange={(date) => setValues({ ...values, dateTime: date! })}
+              onChange={(date) => setValues({ ...values, dateTime: date as Date })}
               showTimeSelect
               timeFormat="HH:mm"
               timeIntervals={15}
