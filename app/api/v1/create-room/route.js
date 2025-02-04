@@ -16,7 +16,7 @@ export const POST = async (req) => {
     const {user_id,room_id,start_time,user_plan,end_time,isSchedule,description,scheduleTime,status,image} = await req.json();
 
 
-    console.log(scheduleTime)
+    console.log(scheduleTime,"AAAAAAA")
     
     let imageUrl = null;
     let imagePublicId = null;

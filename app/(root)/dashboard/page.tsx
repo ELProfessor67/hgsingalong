@@ -109,7 +109,7 @@ const page = () => {
   return (
     <section className='flex size-full flex-col gap-10 text-white'>
 
-      <div className="flex items-center justify-center flex-col mb-12">
+      <div className="flex items-center justify-center flex-col mt-24 mb-16">
 
         <h2 className=" mt-4 !text-6xl !text-white font-bold">
           Dashboard

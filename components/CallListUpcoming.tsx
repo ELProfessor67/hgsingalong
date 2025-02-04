@@ -65,10 +65,13 @@ const CallListUpcoming = () => {
   return (
     <div className='flex items-center justify-center flex-wrap gap-5'>
       {
-        meetings &&  meetings.length != 0 && meetings.map((room: IRoomDetails,idex: number) => (
+        meetings && meetings.length != 0 && meetings.map((room: IRoomDetails, idex: number) => (
           <div className='w-[25rem] !min-h-[13rem] !shadow-md gradient-insta flex flex-col gap-4 rounded-md p-4 !bg-white border border-gray-100'>
-            <h3 className="text-white text-xl">Id: {room?.room_id}</h3>
-            
+            <div className='flex items-start'>
+              <h3 className="text-white text-xl whitespace-pre">Meeting ID: </h3>
+              <h3 className="text-white text-xl">{room?.room_id}</h3>
+            </div>
+
             <p className="text-white/90 text-lg">Date: {formatDate(new Date(room.scheduleTime))}</p>
             <Link href={`/dashboard/beforemeet/${room?.room_id}`} className='py-2 px-5 bg-black/30 rounded-md w-[9rem] mx-auto'>Click TO Start</Link>
           </div>
@@ -76,7 +79,7 @@ const CallListUpcoming = () => {
       }
 
       {
-        meetings.length == 0 && 
+        meetings.length == 0 &&
         <div className='flex items-center justify-center h-[60vh]'>
           <h2 className='text-white/90 text-4xl'>No Upcoming meetings</h2>
         </div>

@@ -8,6 +8,45 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from 'next/link';
 
+function isOneHourLeft(startTime:string) {
+  const targetTime:any = new Date(startTime);
+  const currentTime:any = new Date();
+
+  // Calculate the difference in milliseconds
+  const difference = targetTime - currentTime;
+
+  // Check if the time is over or 1 hour (3600000 ms) or less remains
+  return difference <= 3600000;
+}
+
+const CountdownTimer = ({ startTime }: {startTime: string}) => {
+  const [timeLeft, setTimeLeft] = useState("");
+
+  useEffect(() => {
+    const updateTimer = () => {
+      const targetTime:any = new Date(startTime);
+      const currentTime:any = new Date();
+      const difference = targetTime - currentTime;
+
+      if (difference <= 0) {
+        setTimeLeft("Meeting in Progress");
+      } else {
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / (1000 * 60)) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+        setTimeLeft(`${hours}h ${minutes}m ${seconds}s`);
+      }
+    };
+
+    // Update the timer every second
+    const timerId = setInterval(updateTimer, 1000);
+    return () => clearInterval(timerId);
+  }, [startTime]);
+
+  return (
+    <>{timeLeft}</>
+  );
+};
 
 function formatDateTimeWithDayAndAmPm(date: Date): string {
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -93,12 +132,12 @@ const page = () => {
                     <h2 className='font-medium'>{room.user?.name}</h2>
                   </div>
 
-                  <p className="mb-3 font-light text-gray-50 my-2 mx-1 opacity-40">{new Date(room.scheduleTime as string).toDateString()}</p>
+                  <p className="mb-3 font-light text-gray-50 my-2 mx-1 opacity-70"><CountdownTimer startTime={room.scheduleTime as string} /></p>
                 </div>
                 <p className="mb-3 font-normal text-gray-50 my-2 mx-1">{room.description?.slice(0, 100)}</p>
-                <button disabled={!isToday(room.scheduleTime as string)} className='disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer'>
+                <button disabled={!isOneHourLeft(room.scheduleTime as string)} className='disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer'>
                   {
-                    isToday(room.scheduleTime as string) &&
+                    isOneHourLeft(room.scheduleTime as string) &&
                     <Link href={`/meeting/${room._id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
                       JOIN NOW
                       <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -108,7 +147,7 @@ const page = () => {
                   }
 
                   {
-                    !isToday(room.scheduleTime as string) &&
+                    !isOneHourLeft(room.scheduleTime as string) &&
                     <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-foregroud-primary rounded-lg  outline-none">
                       JOIN NOW
                       <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
