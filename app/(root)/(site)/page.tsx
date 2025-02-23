@@ -7,7 +7,7 @@ import { FaHandshake } from "react-icons/fa";
 import { IoDiamondOutline } from "react-icons/io5";
 import { FaVolumeDown } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa";
-import { FaPlus,FaHeadphones } from "react-icons/fa";
+import { FaPlus, FaHeadphones } from "react-icons/fa";
 import { ConeIcon, icons } from 'lucide-react';
 import MeetingModal from '@/components/MeetingModal';
 import { Textarea } from '@/components/ui/textarea';
@@ -56,26 +56,30 @@ const products = [
   {
     title: "ANYTIME",
     subtitle: "VIDEO CHAT",
-    icon: <img src='/images/streams.png' className='w-[80%] h-[5rem] object-contain'/>,
+    icon: <img src='/images/streams.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-yellow-400 to-orange-500",
+    icon2: "/card-logo/1.png"
   },
   {
     title: "WATCH",
     subtitle: "VIDEOS",
-    icon: <img src='/images/pipeline.png' className='w-[80%] h-[5rem] object-contain'/>,
+    icon: <img src='/images/pipeline.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-green-400 to-blue-500",
+    icon2: "/card-logo/2.png"
   },
   {
-    title: "START",
-    subtitle: "MEETUPS",
-    icon: <img src='/images/radio.png' className='w-[80%] h-[5rem] object-contain'/>,
+    title: "SUBMIT",
+    subtitle: "ANYTIME",
+    icon: <img src='/images/radio.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-purple-400 to-pink-500",
+    icon2: "/card-logo/3.png"
   },
   {
-    title: "OFFICIAL",
-    subtitle: "MAIN PLATFORM",
-    icon: <img src='/images/main-logo.png' className='w-[80%] h-[5rem] object-contain'/>,
+    title: "COMING",
+    subtitle: "SOON",
+    icon: <img src='/images/main-logo.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-orange-400 to-yellow-500",
+    icon2: "/card-logo/4.png"
   },
 ]
 const page = () => {
@@ -458,82 +462,82 @@ const page = () => {
           </div>
           {
             isMobile ?
-            (
-              <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
-            <div className='contentBox active' id='content0'>
-              <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
-            </div>
-            <div className='contentBox' id='content1'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
-              </p>
-            </div>
-            <div className='contentBox' id='content2'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
-              </p>
-            </div>
-            <div className='contentBox' id='content3'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
-              </p>
-            </div>
-            <div className='contentBox' id='content4'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
-              </p>
-            </div>
-            <div className='contentBox' id='content5'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
-              </p>
-            </div>
-            <div className='contentBox' id='content6'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
-                Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
-              </p>
-            </div>
-          </div>
-            ):
-            (
-              <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
-            <div className='contentBox active' id='content0'>
-              <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
-            </div>
-            <div className='contentBox' id='content1'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                I am in PC Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
-              </p>
-            </div>
-            <div className='contentBox' id='content2'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
-              </p>
-            </div>
-            <div className='contentBox' id='content3'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
-              </p>
-            </div>
-            <div className='contentBox' id='content4'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
-              </p>
-            </div>
-            <div className='contentBox' id='content5'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
-              </p>
-            </div>
-            <div className='contentBox' id='content6'>
-              <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
-                Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
-              </p>
-            </div>
-          </div>
-            )
+              (
+                <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
+                  <div className='contentBox active' id='content0'>
+                    <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
+                  </div>
+                  <div className='contentBox' id='content1'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content2'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content3'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content4'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content5'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content6'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 text-xs'>
+                      Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
+                    </p>
+                  </div>
+                </div>
+              ) :
+              (
+                <div className='content absolute inset-0 overflow-hidden items-center justify-center flex'>
+                  <div className='contentBox active' id='content0'>
+                    <h1 className='!text-white !text-sm md:!text-4xl !font-[700] text-gradient'>Why HG SingAlong ?</h1>
+                  </div>
+                  <div className='contentBox' id='content1'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      I am in PC Experience exceptional audio quality that delivers every note with precision. Whether you're enjoying music, calls, or videos, the clarity will impress you.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content2'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      Our intuitive interface ensures that you can navigate and operate seamlessly, without the need for extensive instructions or technical know-how.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content3'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      Designed with teamwork in mind, our platform fosters collaboration, enabling you to work with others effortlessly and in real-time.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content4'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      Packed with cutting-edge features, our service provides all the tools you need to enhance your experience and productivity.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content5'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      Build and scale with ease. Our system is designed to grow with your needs, allowing for additional features and integrations as your requirements evolve.
+                    </p>
+                  </div>
+                  <div className='contentBox' id='content6'>
+                    <p className='!text-white/80 max-w-[21rem] main-para text-center md:p-0 p-5 pt-6 !text-md'>
+                      Your data and privacy are our top priorities. Enjoy peace of mind with our robust security features, ensuring that all your information stays safe and protected.
+                    </p>
+                  </div>
+                </div>
+              )
           }
-          
+
         </div>
 
 
@@ -583,7 +587,7 @@ const page = () => {
 
 
           <div className='flex items-center justify-center w-full md:w-[50%]'>
-            <img src='/images/stamps.jpg' className='w-[22rem] hover:scale-110 transition-all cursor-pointer'/>
+            <img src='/images/stamps.jpg' className='w-[22rem] hover:scale-110 transition-all cursor-pointer' />
           </div>
         </div>
 
@@ -699,11 +703,11 @@ const page = () => {
                               subscription === plan ?
                                 (
                                   <a
-                                    onClick={plan == "free" ? () => setFreePlanModel(true): () => {}}
+                                    onClick={plan == "free" ? () => setFreePlanModel(true) : () => { }}
                                     className="btn btn-sm btn- !bg-[#A79369] !text-white hover-translate-y-n3 hover-shadow-lg mb-3"
                                   >
-                                    {plan == "free" ? "Continue With Free": "Current Plan"}
-                                    
+                                    {plan == "free" ? "Continue With Free" : "Current Plan"}
+
                                   </a>
 
                                 )
@@ -826,8 +830,8 @@ const page = () => {
 
             <div className='w-full md:w-[50%] p-4 !flex !items-center' style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
-                <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM-1.jpeg"
-                  className="img-fluid mw-md-120" />
+                <img alt="Image placeholder" src="/s1.webp"
+                  className="img-fluid mw-md-120 rounded-md" />
               </figure>
             </div>
           </div>
@@ -836,16 +840,16 @@ const page = () => {
 
             <div className='w-full md:w-[50%] p-4 !flex !items-center md:!hidden' style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
-                <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
-                  className="img-fluid mw-md-120 " />
+                <img alt="Image placeholder" src="/s2.webp"
+                  className="img-fluid mw-md-120 rounded-md" />
               </figure>
             </div>
 
 
             <div className='w-full md:w-[50%] p-4 md:!flex !items-center !hidden' style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
-                <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-29-at-10.02.01-AM.jpeg"
-                  className="img-fluid mw-md-120 " />
+                <img alt="Image placeholder" src="/s2.webp"
+                  className="img-fluid mw-md-120 rounded-md" />
               </figure>
             </div>
 
@@ -897,8 +901,8 @@ const page = () => {
             </div>
             <div className='w-full md:w-[50%] p-4 !flex !items-center' style={{ display: 'flex', justifyContent: 'center' }}>
               <figure className=" w-[70%] md:w-[60%] flex items-center">
-                <img alt="Image placeholder" src="https://trivoh.com/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-07-at-6.44.41-PM.jpeg"
-                  className="img-fluid mw-md-120" />
+                <img alt="Image placeholder" src="/s3.webp"
+                  className="img-fluid mw-md-120 rounded-md" />
               </figure>
             </div>
           </div>
@@ -908,21 +912,30 @@ const page = () => {
 
       <div className="bg-background-3 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-center mb-8 !bg-gradient-to-r !from-orange-400 !to-pink-600 !text-transparent !bg-clip-text">
+          <h2 className="!text-6xl font-extrabold text-center mb-8 !bg-gradient-to-r !text-white !text-transparent !bg-clip-text">
             Discover Our Products
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((item, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${item.gradient} rounded-lg p-4 text-white shadow-lg`}
+                className={` rounded-3xl text-white shadow-lg`}
               >
-                <div className="flex items-center justify-between mb-4">
-                  {item.icon}
-                  <FaHeadphones className="h-6 w-6 opacity-50" />
+                <div className='flex items-center justify-center p-3 bg-[#343434] rounded-t-3xl'>
+                  <div className='h-[8px] w-[4rem] rounded-3xl !bg-black'></div>
                 </div>
-                <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-                <p className="text-sm opacity-75 text-white">{item.subtitle}</p>
+                <div className="h-[10rem] w-full bg-[url('/images/bg-card.png')] bg-cover bg-no-repeat relative">
+                  <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/80'>
+                    {item.icon}
+                  </div>
+                </div>
+
+                <div className='flex items-center justify-center  px-4 pb-4 !pt-0 bg-white  w-full rounded-b-3xl relative flex-col'>
+                  <img src={item.icon2} className='w-full h-full object-contain'/>
+                  <h3 className="!text-4xl font-bold text-black">{item.title}</h3>
+                  <h5 className='px-3 py-2 bg-[#ff950b] text-black !text-2xl !font-normal rounded-lg'>{item.subtitle}</h5>
+                </div>
+
               </div>
             ))}
           </div>
@@ -996,7 +1009,7 @@ const page = () => {
         </div>
       </section>
 
-     
+
       {/* End Main Content */}
       <footer className="position-relative" id="footer-main">
         <div className="footer pt-lg-7 footer-dark !bg-background-4">
@@ -1170,7 +1183,7 @@ const page = () => {
 
       <TwoButtonModel
         isOpen={freePlanModel}
-        onClose={() => setFreePlanModel(false) }
+        onClose={() => setFreePlanModel(false)}
         title="Donate Now"
         className="text-center"
         buttonText="Donate Now"
@@ -1178,7 +1191,7 @@ const page = () => {
         handleSecondClick={() => { router.push('/dashboard'); setOpen(false) }}
       >
         <p className='text-center'>How with free plan and donate now.</p>
-        
+
       </TwoButtonModel>
 
 
