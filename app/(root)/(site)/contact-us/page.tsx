@@ -274,7 +274,7 @@ const page = () => {
                       height={40}
                     />
                   </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.singalong_hg">
+                  <a href="#">
                     <img
                       src="/images/google-play-badge.png"
                       alt=""
@@ -292,10 +292,10 @@ const page = () => {
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/bbb.png" width="85" className="p-0 m-0" />
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/access.png" width="65" className="p-0 m-0 me-2" />
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/lock.png" width="65" className="p-0 m-0 me-2" />
-              <a href="https://apps.apple.com/pk/app/hgc-radio-music-live/id6476858215" target="_blank">
+              <a href="#" target="_blank">
                 <img src="https://hallelujahgospel.org/public/new/img/hallulia/apple.png" width="70" className="p-0 m-0 me-2" />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
+              <a href="#" target="_blank">
                 <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
               </a>
 

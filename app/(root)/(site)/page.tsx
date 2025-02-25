@@ -285,8 +285,8 @@ const page = () => {
                       alt="Illustration"
                     /> */}
                     <img
-                      src="https://trivoh.com/wp-content/uploads/2023/10/Trivoh-Virtual-Meeting-Platform.png"
-                      className="img-fluid img-center"
+                      src="/card-images/1.webp"
+                      className="img-fluid img-center !w-[100%] rounded-md"
                       style={{ height: 180 }}
                       alt="Illustration"
                     />
@@ -313,8 +313,8 @@ const page = () => {
                       alt="Illustration"
                     /> */}
                     <img
-                      src="/images/controls.png"
-                      className="img-fluid img-center"
+                      src="/card-images/2.webp"
+                      className="img-fluid img-center !w-[100%] rounded-md"
                       style={{ height: 180 }}
                       alt="Illustration"
                     />
@@ -341,8 +341,8 @@ const page = () => {
                 <div className="card-body !pb-3">
                   <div className="pt-4 pb-5">
                     <img
-                      src="https://trivoh.com/wp-content/uploads/2023/10/Group-425.png"
-                      className="img-fluid img-center"
+                      src="/card-images/3.webp"
+                      className="img-fluid img-center !w-[100%] rounded-md"
                       style={{ height: 180 }}
                       alt="Illustration"
                     />
@@ -599,7 +599,7 @@ const page = () => {
 
 
 
-      <section className="slice pt-0 !bg-background-3 pt-7 relative">
+      <section className="slice  !bg-background-3 pt-7 relative">
 
         <div className='absolute bottom-1 left-1 z-0'>
           <img src='/images/bottom-box-shape.png' />
@@ -788,7 +788,7 @@ const page = () => {
         <div className='container'>
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 my-2'>
             <div className=' w-full md:w-[50%] p-4 md:hidden block'>
-              <div className="h1 !text-3xl !text-white/90 text-center">
+              <div className="h1  !text-white/90 text-center !text-4xl">
                 Create an account to host a meeting
               </div>
               <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
@@ -810,10 +810,10 @@ const page = () => {
 
 
             <div className=' w-full md:w-[50%] p-4 md:block hidden'>
-              <div className="h1 !text-3xl !text-white/90 ">
+              <div className="h1 !text-4xl !text-white/90 ">
                 Create an account to host a meeting
               </div>
-              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 ">
+              <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
                 Sign up with your Name, Email Address, and Password. Then, check your email to verify your account. Once your account is verified, you will have full access to Trivoh workspace.
               </p>
               <div className="text-center text-md-left mt-3">
@@ -858,7 +858,7 @@ const page = () => {
             </div>
 
             <div className=' w-full md:w-[50%] p-4 md:hidden block'>
-              <div className="h1 !text-3xl !text-white/90 text-center">
+              <div className="h1 !text-white/90 text-center !text-4xl">
                 Set up your meeting
               </div>
               <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
@@ -868,7 +868,7 @@ const page = () => {
             </div>
 
             <div className=' w-full md:w-[50%] p-4 hidden md:block'>
-              <div className="h1 !text-3xl !text-white/90">
+              <div className="h1 !text-4xl !text-white/90">
                 Set up your meeting
               </div>
               <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
@@ -880,7 +880,7 @@ const page = () => {
 
           <div className='w-full relative flex flex-wrap flex-col md:flex-row items-center gap-0 mt-2'>
             <div className=' w-full md:w-[50%] p-4 block md:hidden'>
-              <div className="h1 !text-3xl !text-white/90 text-center">
+              <div className="h1  !text-white/90 text-center !text-4xl">
                 Enter your meeting room
               </div>
               <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80 text-center">
@@ -893,7 +893,7 @@ const page = () => {
 
 
             <div className=' w-full md:w-[50%] p-4 hidden md:block'>
-              <div className="h1 !text-3xl !text-white/90">
+              <div className="h1  !text-white/90 !text-4xl">
                 Enter your meeting room
               </div>
               <p className="leading-7 mt-3 font-[300] text-[1.125rem] main-para !text-white/80">
@@ -959,12 +959,12 @@ const page = () => {
           <div className="row">
             <div className="col-lg-12" style={{ textAlign: "center" }}>
               <span
-                className="badge badge-primary !bg-foregroud-primary badge-pill !font-medium"
+                className="badge badge-primary !bg-foregroud-primary badge-pill !font-medium !text-4xl"
                 style={{ fontSize: 20 }}
               >
                 Latest Public Meetings
               </span>
-              <p className="lh-180 mt-4 mb-5 main-para !text-white/80">
+              <p className="lh-180 mt-4 mb-5 main-para !text-white/80 !font-normal">
                 We offer Public and Private meetings. Only Public meetings (live and
                 scheduled) will be displayed on our website so other users can join
                 those meetings.
@@ -1106,7 +1106,7 @@ const page = () => {
                       height={40}
                     />
                   </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.singalong_hg">
+                  <a href="#">
                     <img
                       src="/images/google-play-badge.png"
                       alt=""
@@ -1124,15 +1124,10 @@ const page = () => {
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/bbb.png" width="85" className="p-0 m-0" />
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/access.png" width="65" className="p-0 m-0 me-2" />
               <img src="https://hallelujahgospel.org/public/new/img/hallulia/lock.png" width="65" className="p-0 m-0 me-2" />
-              <a href="https://apps.apple.com/pk/app/hgc-radio-music-live/id6476858215" target="_blank">
-                <img src="https://hallelujahgospel.org/public/new/img/hallulia/apple.png" width="70" className="p-0 m-0 me-2" />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
-                <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.hgc.music.new" target="_blank">
-                <img src='/images/stamps.jpg' className=' w-[4rem] h-[4rem] mx-auto' />
-              </a>
+              <img src="https://hallelujahgospel.org/public/new/img/hallulia/apple.png" width="70" className="p-0 m-0 me-2" />
+              <img src="https://hallelujahgospel.org/public/new/img/hallulia/g-play.png" width="70" className="p-0 m-0" />
+              <img src='/images/stamps.jpg' className='p-0 m-0 w-[4rem] h-[4rem]' />
+
 
 
             </div>
