@@ -58,28 +58,32 @@ const products = [
     subtitle: "VIDEO CHAT",
     icon: <img src='/images/streams.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-yellow-400 to-orange-500",
-    icon2: "/card-logo/1.png"
+    icon2: "/card-logo/1.png",
+    link: "https://hgvibelive.org/"
   },
   {
     title: "WATCH",
     subtitle: "VIDEOS",
     icon: <img src='/images/pipeline.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-green-400 to-blue-500",
-    icon2: "/card-logo/2.png"
+    icon2: "/card-logo/2.png",
+    link: "https://hgpipeline.com/"
   },
   {
     title: "SUBMIT",
     subtitle: "ANYTIME",
     icon: <img src='/images/radio.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-purple-400 to-pink-500",
-    icon2: "/card-logo/3.png"
+    icon2: "/card-logo/3.png",
+    link: "https://hgcradio.com/"
   },
   {
     title: "COMING",
     subtitle: "SOON",
     icon: <img src='/images/main-logo.png' className='w-[80%] h-[5rem] object-contain' />,
     gradient: "from-orange-400 to-yellow-500",
-    icon2: "/card-logo/4.png"
+    icon2: "/card-logo/4.png",
+    link: "#"
   },
 ]
 const page = () => {
@@ -917,26 +921,30 @@ const page = () => {
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((item, index) => (
-              <div
-                key={index}
-                className={` rounded-3xl text-white shadow-lg`}
-              >
-                <div className='flex items-center justify-center p-3 bg-[#343434] rounded-t-3xl'>
-                  <div className='h-[8px] w-[4rem] rounded-3xl !bg-black'></div>
-                </div>
-                <div className="h-[10rem] w-full bg-[url('/images/bg-card.png')] bg-cover bg-no-repeat relative">
-                  <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/80'>
-                    {item.icon}
+              <a href={item.link}>
+
+
+                <div
+                  key={index}
+                  className={` rounded-3xl text-white shadow-lg`}
+                >
+                  <div className='flex items-center justify-center p-3 bg-[#343434] rounded-t-3xl'>
+                    <div className='h-[8px] w-[4rem] rounded-3xl !bg-black'></div>
                   </div>
-                </div>
+                  <div className="h-[10rem] w-full bg-[url('/images/bg-card.png')] bg-cover bg-no-repeat relative">
+                    <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black/80'>
+                      {item.icon}
+                    </div>
+                  </div>
 
-                <div className='flex items-center justify-center  px-4 pb-4 !pt-0 bg-white  w-full rounded-b-3xl relative flex-col'>
-                  <img src={item.icon2} className='w-full h-full object-contain'/>
-                  <h3 className="!text-4xl font-bold text-black">{item.title}</h3>
-                  <h5 className='px-3 py-2 bg-[#ff950b] text-black !text-2xl !font-normal rounded-lg'>{item.subtitle}</h5>
-                </div>
+                  <div className='flex items-center justify-center  px-4 pb-4 !pt-0 bg-white  w-full rounded-b-3xl relative flex-col'>
+                    <img src={item.icon2} className='w-full h-full object-contain' />
+                    <h3 className="!text-4xl font-bold text-black">{item.title}</h3>
+                    <h5 className='px-3 py-2 bg-[#ff950b] text-black !text-2xl !font-normal rounded-lg'>{item.subtitle}</h5>
+                  </div>
 
-              </div>
+                </div>
+              </a>
             ))}
           </div>
         </div>
