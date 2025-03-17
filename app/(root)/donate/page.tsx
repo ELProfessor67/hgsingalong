@@ -391,7 +391,7 @@ const page = ({ searchParams }: props) => {
               <div className="mt-6 grow sm:mt-8 lg:mt-0">
                 <div className="space-y-4 rounded-lg  bg-background-4 p-6 w-full md:w-[24rem]">
                   <p className='text-white/80 leading-6'>
-                    Join us in sustaining and expanding this powerful, God-ordained ministry. Your love gift not only supports this incredible work but also empowers us to reach more lives with His message of hope and transformation. Together, we can make an eternal impact!
+                    *Join us in sustaining and expanding this powerful, God-ordained ministry. Your love gift not only supports this incredible work but also empowers us to reach more lives with His message of hope and transformation. Together, we can make an eternal impact!
                   </p>
                 </div>
                 <div className="mt-6 flex items-center justify-center gap-8">
